@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F14B328015D50138003DFF85"
                BuildableName = "howjoy.app"
-               BlueprintName = "howjoy"
-               ReferencedContainer = "container:howjoy.xcodeproj">
+               BlueprintName = "kindergarten"
+               ReferencedContainer = "container:kindergarten.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F14B328015D50138003DFF85"
             BuildableName = "howjoy.app"
-            BlueprintName = "howjoy"
-            ReferencedContainer = "container:howjoy.xcodeproj">
+            BlueprintName = "kindergarten"
+            ReferencedContainer = "container:kindergarten.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F14B328015D50138003DFF85"
             BuildableName = "howjoy.app"
-            BlueprintName = "howjoy"
-            ReferencedContainer = "container:howjoy.xcodeproj">
+            BlueprintName = "kindergarten"
+            ReferencedContainer = "container:kindergarten.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -71,8 +71,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F14B328015D50138003DFF85"
             BuildableName = "howjoy.app"
-            BlueprintName = "howjoy"
-            ReferencedContainer = "container:howjoy.xcodeproj">
+            BlueprintName = "kindergarten"
+            ReferencedContainer = "container:kindergarten.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

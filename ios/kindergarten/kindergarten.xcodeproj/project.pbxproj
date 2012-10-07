@@ -196,14 +196,14 @@
 		830BEADC15F57B4A00C73F5A /* HJProfileHeaderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HJProfileHeaderViewCell.m; path = view/HJProfileHeaderViewCell.m; sourceTree = "<group>"; };
 		839C6C3F15F9108D0059A99E /* HJProfileHeaderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJProfileHeaderViewCell.xib; sourceTree = "<group>"; };
 		83E9D07C160E350E002AC5C3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		F14B328115D50138003DFF85 /* howjoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = howjoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F14B328115D50138003DFF85 /* kindergarten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kindergarten.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14B328515D50138003DFF85 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F14B328715D50138003DFF85 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F14B328915D50138003DFF85 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		F14B328D15D50138003DFF85 /* howjoy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "howjoy-Info.plist"; sourceTree = "<group>"; };
+		F14B328D15D50138003DFF85 /* kindergarten-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "kindergarten-Info.plist"; sourceTree = "<group>"; };
 		F14B328F15D50138003DFF85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F14B329115D50138003DFF85 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F14B329315D50138003DFF85 /* howjoy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "howjoy-Prefix.pch"; sourceTree = "<group>"; };
+		F14B329315D50138003DFF85 /* kindergarten-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kindergarten-Prefix.pch"; sourceTree = "<group>"; };
 		F14B329415D50138003DFF85 /* HJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HJAppDelegate.h; sourceTree = "<group>"; };
 		F14B329515D50138003DFF85 /* HJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HJAppDelegate.m; sourceTree = "<group>"; };
 		F14B329715D50138003DFF85 /* HJFeedCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HJFeedCenterViewController.h; sourceTree = "<group>"; };
@@ -514,7 +514,7 @@
 		F14B328215D50138003DFF85 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F14B328115D50138003DFF85 /* howjoy.app */,
+				F14B328115D50138003DFF85 /* kindergarten.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -621,10 +621,10 @@
 		F14B328C15D50138003DFF85 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F14B328D15D50138003DFF85 /* howjoy-Info.plist */,
+				F14B328D15D50138003DFF85 /* kindergarten-Info.plist */,
 				F14B328E15D50138003DFF85 /* InfoPlist.strings */,
 				F14B329115D50138003DFF85 /* main.m */,
-				F14B329315D50138003DFF85 /* howjoy-Prefix.pch */,
+				F14B329315D50138003DFF85 /* kindergarten-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -937,9 +937,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F14B328015D50138003DFF85 /* howjoy */ = {
+		F14B328015D50138003DFF85 /* kindergarten */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F14B32AD15D50138003DFF85 /* Build configuration list for PBXNativeTarget "howjoy" */;
+			buildConfigurationList = F14B32AD15D50138003DFF85 /* Build configuration list for PBXNativeTarget "kindergarten" */;
 			buildPhases = (
 				F14B327D15D50138003DFF85 /* Sources */,
 				F14B327E15D50138003DFF85 /* Frameworks */,
@@ -949,9 +949,9 @@
 			);
 			dependencies = (
 			);
-			name = howjoy;
+			name = kindergarten;
 			productName = howjoy;
-			productReference = F14B328115D50138003DFF85 /* howjoy.app */;
+			productReference = F14B328115D50138003DFF85 /* kindergarten.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -964,7 +964,7 @@
 				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = HowJoy;
 			};
-			buildConfigurationList = F14B327B15D50138003DFF85 /* Build configuration list for PBXProject "howjoy" */;
+			buildConfigurationList = F14B327B15D50138003DFF85 /* Build configuration list for PBXProject "kindergarten" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -977,7 +977,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F14B328015D50138003DFF85 /* howjoy */,
+				F14B328015D50138003DFF85 /* kindergarten */,
 			);
 		};
 /* End PBXProject section */
@@ -1236,16 +1236,16 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ray Tap (87EFZF7UQV)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "howjoy/howjoy-Prefix.pch";
+				GCC_PREFIX_HEADER = "howjoy/kindergarten-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/howjoy/\"/**";
-				INFOPLIST_FILE = "howjoy/howjoy-Info.plist";
+				INFOPLIST_FILE = "howjoy/kindergarten-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor/umeng/SDK\"",
 					"\"$(SRCROOT)/vendor/umeng\"",
 					"\"$(SRCROOT)/vendor/ZBarSDK\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = kindergarten;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B5A3070-847D-4356-AF37-8D4FBC488526";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
@@ -1258,16 +1258,16 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ray Tap (87EFZF7UQV)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "howjoy/howjoy-Prefix.pch";
+				GCC_PREFIX_HEADER = "howjoy/kindergarten-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/howjoy/\"/**";
-				INFOPLIST_FILE = "howjoy/howjoy-Info.plist";
+				INFOPLIST_FILE = "howjoy/kindergarten-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/vendor/umeng/SDK\"",
 					"\"$(SRCROOT)/vendor/umeng\"",
 					"\"$(SRCROOT)/vendor/ZBarSDK\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = kindergarten;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B5A3070-847D-4356-AF37-8D4FBC488526";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1276,7 +1276,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F14B327B15D50138003DFF85 /* Build configuration list for PBXProject "howjoy" */ = {
+		F14B327B15D50138003DFF85 /* Build configuration list for PBXProject "kindergarten" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F14B32AB15D50138003DFF85 /* Debug */,
@@ -1285,7 +1285,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F14B32AD15D50138003DFF85 /* Build configuration list for PBXNativeTarget "howjoy" */ = {
+		F14B32AD15D50138003DFF85 /* Build configuration list for PBXNativeTarget "kindergarten" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F14B32AE15D50138003DFF85 /* Debug */,
