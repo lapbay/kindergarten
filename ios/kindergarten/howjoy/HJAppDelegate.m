@@ -25,29 +25,27 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:@"MIShouldAddLoginView" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification* n){
         self.loginController = [[MILoginViewController alloc] initWithNibName:@"MILoginViewController" bundle:nil];
 //        [self.tabBarController.view addSubview: self.loginController.view];
-        [self.deckController.view addSubview: self.loginController.view];
+        [self.tabBarController.view addSubview: self.loginController.view];
 
     }];
 
-//    HJTaskCenterViewController *viewController1 = [[HJTaskCenterViewController alloc] initWithNibName:@"HJTaskCenterViewController" bundle:nil];
-//    HJFeedCenterViewController *viewController2 = [[HJFeedCenterViewController alloc] initWithNibName:@"HJFeedCenterViewController" bundle:nil];
-//    HJProfileViewController *viewController3 = [[HJProfileViewController alloc] initWithNibName:@"HJProfileViewController" bundle:nil];
-////    HJMoreViewController *viewController4 = [[HJMoreViewController alloc] initWithNibName:@"HJMoreViewController" bundle:nil];
-//    MIMoreViewController *viewController4 = [[MIMoreViewController alloc] initWithNibName:@"MIMoreViewController" bundle:nil];
-//    HJRecordViewController *viewController5 = [[HJRecordViewController alloc] initWithNibName:@"HJRecordViewController" bundle:nil];
-//    
-//    UINavigationController *navController1 = [[UINavigationController alloc] initWithRootViewController:viewController1];
-//    UINavigationController *navController2 = [[UINavigationController alloc] initWithRootViewController:viewController2];
-//    UINavigationController *navController4 = [[UINavigationController alloc] initWithRootViewController:viewController3];
-//    UINavigationController *navController5 = [[UINavigationController alloc] initWithRootViewController:viewController4];
-//    UINavigationController *navController3 = [[UINavigationController alloc] initWithRootViewController:viewController5];
-//
-//    self.tabBarController = [[UITabBarController alloc] init];
-//    self.tabBarController.viewControllers = @[navController1, navController2, navController3, navController4, navController5];
-//    self.window.rootViewController = self.tabBarController;
+    HJFeedCenterViewController *viewController1 = [[HJFeedCenterViewController alloc] initWithNibName:@"HJFeedCenterViewController" bundle:nil];
+    HJTaskCenterViewController *viewController2 = [[HJTaskCenterViewController alloc] initWithNibName:@"HJTaskCenterViewController" bundle:nil];
+    HJProfileViewController *viewController3 = [[HJProfileViewController alloc] initWithNibName:@"HJProfileViewController" bundle:nil];
+//    HJMoreViewController *viewController4 = [[HJMoreViewController alloc] initWithNibName:@"HJMoreViewController" bundle:nil];
+    MIMoreViewController *viewController4 = [[MIMoreViewController alloc] initWithNibName:@"MIMoreViewController" bundle:nil];
+    
+    UINavigationController *navController1 = [[UINavigationController alloc] initWithRootViewController:viewController1];
+    UINavigationController *navController2 = [[UINavigationController alloc] initWithRootViewController:viewController2];
+    UINavigationController *navController3 = [[UINavigationController alloc] initWithRootViewController:viewController3];
+    UINavigationController *navController4 = [[UINavigationController alloc] initWithRootViewController:viewController4];
 
-    self.deckController =  [self setupIIViewDeckController];
-    self.window.rootViewController = self.deckController;
+    self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.viewControllers = @[navController1, navController2, navController3, navController4];
+    self.window.rootViewController = self.tabBarController;
+
+//    self.deckController =  [self setupIIViewDeckController];
+//    self.window.rootViewController = self.deckController;
 
     BOOL isLoggedIn = [[MIStorage sharedManager] isLogin];
     if (isLoggedIn) {
