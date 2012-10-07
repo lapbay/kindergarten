@@ -1,0 +1,10 @@
+Required:
+  Nginx>=0.8.54
+  Passenger
+  Ruby>=1.9.2
+  Rails
+  Mongoid>=3.0.0
+  MongoDB>=2.0.7
+  ImageMagick>=0.18.1.1
+
+Optional:
