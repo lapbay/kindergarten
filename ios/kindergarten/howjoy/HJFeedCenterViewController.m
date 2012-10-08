@@ -14,6 +14,7 @@
 #import "HJTaskViewController.h"
 #import "HJNotificationCenterViewController.h"
 #import "HJTaskSeriesViewController.h"
+#import "HJRecordViewController.h"
 
 @interface HJFeedCenterViewController ()
 
@@ -37,14 +38,18 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-//    UIBarButtonItem *NavButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Notification", @"Notification")
-//                                                                  style:UIBarButtonItemStyleBordered
-//                                                                 target:self
-//                                                                 action:@selector(notificationButtonTapped:)];
-//    self.navigationItem.rightBarButtonItem = NavButton;
+    UIBarButtonItem *NavButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"发布状态", @"Post")
+                                                                  style:UIBarButtonItemStyleBordered
+                                                                 target:self
+                                                                 action:@selector(postButtonTapped:)];
+    self.navigationItem.rightBarButtonItem = NavButton;
 
     self.contentView.delegate = self;
     self.contentView.dataSource = self;
+    
+    [self initRefreshView:self.contentView];
+    isLoading = YES;
+    [self refreshFooterTriggered];
 }
 
 - (void)viewDidUnload
@@ -61,19 +66,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    [self initRefreshView:self.contentView];
-    isLoading = YES;
-    [self refreshFooterTriggered];
 }
-
-//- (IBAction)profileButtonTapped : (id) sender {
-//    HJProfileViewController *profile = [[HJProfileViewController alloc] initWithNibName:@"HJProfileViewController" bundle:nil];
-//    profile.profileId = @"5031f3280b11356772000005";
-//    [self.navigationController pushViewController:profile animated:YES];
-//}
-
-
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -182,11 +175,14 @@
 }
 
 
-- (IBAction)notificationButtonTapped: (id) sender {
-    HJNotificationCenterViewController *notification = [[HJNotificationCenterViewController alloc] initWithNibName:@"HJNotificationCenterViewController" bundle:nil];
-    UINavigationController *notiController = [[UINavigationController alloc] initWithRootViewController:notification];
-
-    [self presentModalViewController:notiController animated:YES];
+- (IBAction)postButtonTapped: (id) sender {
+    HJRecordViewController *viewController5 = [[HJRecordViewController alloc] initWithNibName:@"HJRecordViewController" bundle:nil];
+    
+    viewController5.shouldAddCancelButton = YES;
+    viewController5.type = HJRecordTypeFinish;
+    UINavigationController *centerController = [[UINavigationController alloc] initWithRootViewController:viewController5];
+    //centerController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentModalViewController:centerController animated:YES];
 }
 
 - (void) refreshHeaderTriggered {

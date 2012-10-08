@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F14B328015D50138003DFF85"
-               BuildableName = "howjoy.app"
+               BuildableName = "kindergarten.app"
                BlueprintName = "kindergarten"
                ReferencedContainer = "container:kindergarten.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F14B328015D50138003DFF85"
-            BuildableName = "howjoy.app"
+            BuildableName = "kindergarten.app"
             BlueprintName = "kindergarten"
             ReferencedContainer = "container:kindergarten.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F14B328015D50138003DFF85"
-            BuildableName = "howjoy.app"
+            BuildableName = "kindergarten.app"
             BlueprintName = "kindergarten"
             ReferencedContainer = "container:kindergarten.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F14B328015D50138003DFF85"
-            BuildableName = "howjoy.app"
+            BuildableName = "kindergarten.app"
             BlueprintName = "kindergarten"
             ReferencedContainer = "container:kindergarten.xcodeproj">
          </BuildableReference>
