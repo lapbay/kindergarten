@@ -84,8 +84,11 @@
 }
 
 - (IBAction)createButtonTapped : (id) sender {
-    UIActionSheet *select = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"发布独立任务", @"发布系列任务", nil];
-    [select showFromBarButtonItem:sender animated:YES];
+    HJCreateTaskViewController *creator = [[HJCreateTaskViewController alloc] initWithNibName:@"HJCreateTaskViewController" bundle:nil];
+    creator.type = HJTaskTypeIndependentCreate;
+    [self.navigationController pushViewController:creator animated:YES];
+//    UIActionSheet *select = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"发布独立任务", @"发布系列任务", nil];
+//    [select showFromBarButtonItem:sender animated:YES];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
