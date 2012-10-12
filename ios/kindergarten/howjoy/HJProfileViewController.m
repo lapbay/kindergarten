@@ -13,6 +13,9 @@
 #import "HJTaskCell.h"
 #import "HJTaskSeriesViewController.h"
 #import "HJTaskViewController.h"
+#import "HJChatViewController.h"
+#import "MBProgressHUD.h"
+
 
 @interface HJProfileViewController ()
 
@@ -67,6 +70,7 @@
                      NSDictionary *d = [resp objectForKey:@"d"];
                      Log(@"%@", d);
                      NSMutableDictionary *profile = [NSMutableDictionary dictionaryWithDictionary:[d objectForKey:@"profile"]];
+                     self.profileData = profile;
                      self.dataSource = [d objectForKey:@"data"];
                      
                      dispatch_async(dispatch_get_main_queue(), ^{
@@ -93,6 +97,7 @@
                                  //a friend
                                  UIBarButtonItem *NavButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"移除好友", @"Unfriend") style:UIBarButtonItemStyleBordered target:self action:@selector(unfollowButtonTapped:)];
                                  self.navigationItem.rightBarButtonItem = NavButton;
+                                 self.messageButton.hidden = NO;
                                  break;
                              }
                              case 3:
@@ -196,7 +201,10 @@
         case HJTableContentFeedType:
             heights = 80.0;
             break;
-            
+        case HJTableContentFriendType:
+            heights = 44.0;
+            break;
+           
         default:
             heights= 120.0;
             break;
@@ -302,6 +310,20 @@
             [self configureCell:cell atIndexPath:indexPath];
             return cell;
 
+        }
+            break;
+        case HJTableContentFriendType:{
+            static NSString *CellIdentifier = @"Cell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                cell.selectionStyle = UITableViewCellSelectionStyleGray;
+            }
+            NSDictionary *cellData = [self.dataSource objectAtIndex:indexPath.row];
+            
+            cell.textLabel.text = [cellData objectForKey:@"name"];
+            
+            return cell;
         }
             break;
         default:
@@ -607,18 +629,20 @@
         self.introductionLabel.text = [MIStorage sharedManager].currentUserIntroducation;
     }
 }
+
 - (IBAction)tabDidSwitch:(id)sender {
     UISegmentedControl * control = (UISegmentedControl*)sender;
     self.hjContentType = control.selectedSegmentIndex ;
     if (control.selectedSegmentIndex==0) {
         [self fetchFeeds];
-    }
-    if (control.selectedSegmentIndex ==1) {
+    }else if (control.selectedSegmentIndex ==1) {
         [self fetchTasks];
-    }
-    if (control.selectedSegmentIndex ==2) {
+    }else if (control.selectedSegmentIndex ==2) {
         [self fetchPhotos];
+    }else if (control.selectedSegmentIndex ==3) {
+        [self fetchFriends];
     }
+
 }
 - (void) fetchFeeds{
     MIRequestManager *manager = [MIRequestManager requestManager];
@@ -809,9 +833,162 @@
          });
      }];
 }
+- (void) fetchFriends{
+    NSDictionary *params = @{@"type": @"0", @"id": self.profileId};
+    MIRequestManager *manager = [MIRequestManager requestManager];
+    [manager apiFriendsList:params withFinishHandler:^(NSURLResponse *response, NSData *rData, NSError *error)
+     {
+         if ([rData length] > 0 && error == nil){
+             //NSLog(@"%@", [[NSString alloc] initWithData:rData encoding:NSUTF8StringEncoding]);
+             NSMutableDictionary *resp = [NSMutableDictionary dictionaryWithDictionary:[rData JSONValue]];
+             NSInteger c = [[resp objectForKey:@"c"] intValue];
+             if (c == 200) {
+                 NSArray *d = [resp objectForKey:@"d"];
+                 self.dataSource = [NSMutableArray arrayWithArray:d];
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [self.contentView reloadData];
+                 });
+                 
+                 @try {
+                 }
+                 @catch (NSException *exception) {
+                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"网络错误"
+                                                                     message:@"服务器返回数据错误"
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"OK"
+                                                           otherButtonTitles:nil, nil];
+                     dispatch_async(dispatch_get_main_queue(), ^{
+                         [alert show];
+                     });
+                 }
+                 @finally {
+                     
+                 }
+             }else {
+                 NSString *msg;
+                 if ([resp objectForKey:@"d"]) {
+                     if ([[resp objectForKey:@"d"] isKindOfClass:[NSString class]]) {
+                         msg = [resp objectForKey:@"d"];
+                     }else if ([[resp objectForKey:@"d"] isKindOfClass:[NSDictionary class]]) {
+                         msg = [[resp objectForKey:@"d"] objectForKey:@"message"];
+                     }
+                 }else if ([resp objectForKey:@"error"]) {
+                     msg = [resp objectForKey:@"error"];
+                 }else if ([resp objectForKey:@"message"]) {
+                     msg = [resp objectForKey:@"message"];
+                 }else{
+                     msg = @"服务器未返回可读的错误信息";
+                 }
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"网络错误"
+                                                                 message:msg
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil, nil];
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [alert show];
+                 });
+             }
+         }
+     } withErrorHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+     {
+         dispatch_async(dispatch_get_main_queue(), ^{
+         });
+     }];
+}
 
 - (IBAction)editButtonTapped:(id)sender {
     Log(@"%@", @"should edit profile");
 }
+
+- (IBAction)messageButtonTapped:(id)sender {
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"发私信"
+//                                                    message:[NSString stringWithFormat:@"%@", @"somebody"]
+//                                                   delegate:self
+//                                          cancelButtonTitle:@"取消"
+//                                          otherButtonTitles:@"确定", nil];
+//    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+//    [alert show];
+    HJChatViewController *viewController = [[HJChatViewController alloc] initWithNibName:@"HJChatViewController" bundle:nil];
+    viewController.withId = self.profileId;
+    viewController.title = [self.profileData objectForKey:@"name"];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+//    UITextField *textField = [alertView textFieldAtIndex:0];
+//    if ([textField.text length] <= 0 || buttonIndex == 0){
+//        return;
+//    }
+//    if (buttonIndex == 1) {
+//        [self sendMessage:textField.text];
+//    }
+//}
+//- (void) sendMessage:(NSString *)txt{
+//    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:txt?txt:@"", @"msg", self.profileId, @"to", nil];
+//    MIRequestManager *manager = [MIRequestManager requestManager];
+//    [manager apiSendMessage:params withFinishHandler:^(NSURLResponse *response, NSData *rData, NSError *error)
+//     {
+//         if ([rData length] > 0 && error == nil){
+//             //NSLog(@"%@", [[NSString alloc] initWithData:rData encoding:NSUTF8StringEncoding]);
+//             NSMutableDictionary *resp = [NSMutableDictionary dictionaryWithDictionary:[rData JSONValue]];
+//             NSInteger c = [[resp objectForKey:@"c"] intValue];
+//             if (c == 200) {
+//                 NSString *d = [resp objectForKey:@"d"];
+//                 Log(@"%@", d);
+//                 MBProgressHUD *alert = [[MBProgressHUD alloc] initWithView:self.view];
+//                 alert.customView = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"Icon"]];
+//                 alert.mode = MBProgressHUDModeCustomView;
+//                 alert.labelText = @"私信发送成功";
+//                 
+//                 dispatch_async(dispatch_get_main_queue(), ^{
+//                     [self.view addSubview:alert];
+//                     [alert show:YES];
+//                     [alert hide:YES afterDelay:2.0];
+//                 });
+//                 @try {
+//                 }
+//                 @catch (NSException *exception) {
+//                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"网络错误"
+//                                                                     message:@"服务器返回数据错误"
+//                                                                    delegate:nil
+//                                                           cancelButtonTitle:@"OK"
+//                                                           otherButtonTitles:nil, nil];
+//                     dispatch_async(dispatch_get_main_queue(), ^{
+//                         [alert show];
+//                     });
+//                 }
+//                 @finally {
+//                     
+//                 }
+//             }else {
+//                 NSString *msg;
+//                 if ([resp objectForKey:@"d"]) {
+//                     if ([[resp objectForKey:@"d"] isKindOfClass:[NSString class]]) {
+//                         msg = [resp objectForKey:@"d"];
+//                     }else if ([[resp objectForKey:@"d"] isKindOfClass:[NSDictionary class]]) {
+//                         msg = [[resp objectForKey:@"d"] objectForKey:@"message"];
+//                     }
+//                 }else if ([resp objectForKey:@"error"]) {
+//                     msg = [resp objectForKey:@"error"];
+//                 }else if ([resp objectForKey:@"message"]) {
+//                     msg = [resp objectForKey:@"message"];
+//                 }else{
+//                     msg = @"服务器未返回可读的错误信息";
+//                 }
+//                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"网络错误"
+//                                                                 message:msg
+//                                                                delegate:nil
+//                                                       cancelButtonTitle:@"OK"
+//                                                       otherButtonTitles:nil, nil];
+//                 dispatch_async(dispatch_get_main_queue(), ^{
+//                     [alert show];
+//                 });
+//             }
+//         }
+//     } withErrorHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+//     {
+//         dispatch_async(dispatch_get_main_queue(), ^{
+//         });
+//     }];
+//}
 
 @end

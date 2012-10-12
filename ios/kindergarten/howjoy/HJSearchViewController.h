@@ -23,6 +23,7 @@ typedef enum {
 @property (retain, nonatomic) IBOutlet UITableView *contentView;
 
 @property (assign, nonatomic) HJSearchViewType type;
+@property (assign, nonatomic) id delegate;
 @property (retain, nonatomic) NSMutableArray *dataSource;
 
 -(void) doSearch;

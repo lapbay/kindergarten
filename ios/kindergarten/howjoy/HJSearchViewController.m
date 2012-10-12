@@ -38,12 +38,15 @@
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     gestureRecognizer.cancelsTouchesInView = NO;
     [self.contentView addGestureRecognizer:gestureRecognizer];
-//    for(id cc in [self.searchBar subviews]){
-//        if([cc isKindOfClass:[UIButton class]]){
-//            UIButton *btn = (UIButton *)cc;
-//            [btn setTitle:@"搜索" forState:UIControlStateNormal];
-//        }
-//    }
+    for(id cc in [self.searchBar subviews]){
+        if([cc isKindOfClass:[UIButton class]]){
+            UIButton *btn = (UIButton *)cc;
+            //[btn setTitle:@"搜索" forState:UIControlStateNormal];
+            btn.enabled = YES;
+            break;
+        }
+    }
+
     [self.searchBar setDelegate:self];
     if (self.type == HJSearchViewTypeTask) {
         self.searchBar.placeholder= @"搜索任务";
@@ -82,7 +85,12 @@
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *) bar{
-    [self doSearch];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(searchConfirmed:)]) {
+        [self.delegate performSelector:@selector(searchConfirmed:) withObject:self.searchBar.text];
+        [self dismissModalViewControllerAnimated:YES];
+    }else{
+        [self doSearch];
+    }
     [self.searchBar resignFirstResponder];
 }
 
@@ -90,6 +98,16 @@
     [self.searchBar resignFirstResponder];
     [self dismissModalViewControllerAnimated:YES];
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    return YES;
+}
+
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    return YES;
 }
 
 - (void) doSearch {
@@ -109,7 +127,6 @@
              if (c == 200) {
                  NSArray *d = [resp objectForKey:@"d"];
                  self.dataSource = [NSMutableArray arrayWithArray:d];
-                 Log(@"%@", self.dataSource);
                  dispatch_async(dispatch_get_main_queue(), ^{
                      [self.contentView reloadData];
                  });
@@ -197,7 +214,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSDictionary *cellData = [self.dataSource objectAtIndex:indexPath.row];
-    NSLog(@"%@", cellData);
 
     if (self.type == HJSearchViewTypeProfile) {
         HJProfileViewController *profile = [[HJProfileViewController alloc] initWithNibName:@"HJProfileViewController" bundle:nil];

@@ -8,16 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "MIRequestManager+API.h"
-#import "MBProgressHUD.h"
 #import "Reachability.h"
 
-@interface MILoginViewController : UIViewController <MBProgressHUDDelegate, MIRequestDelegate, UITextFieldDelegate> {
+@interface MILoginViewController : UIViewController <MIRequestDelegate, UITextFieldDelegate> {
     IBOutlet UITextField *userField;
     IBOutlet UITextField *pswdField;
     IBOutlet UIButton *submitButton;
 }
 
-@property (retain, nonatomic) MBProgressHUD *hud;
 @property (retain, nonatomic) IBOutlet UITextField *userField;
 @property (retain, nonatomic) IBOutlet UITextField *pswdField;
 @property (retain, nonatomic) IBOutlet UIButton *submitButton;

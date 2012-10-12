@@ -10,7 +10,8 @@
 typedef enum{
     HJTableContentFeedType = 0,
     HJTableContentTaskType,
-    HJTableContentPhotoType
+    HJTableContentPhotoType,
+    HJTableContentFriendType
 }HJTableContentType;
 @interface HJProfileViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate> {
     IBOutlet UITableView *contentView;
@@ -18,10 +19,11 @@ typedef enum{
 }
 @property (nonatomic,assign)  HJTableContentType hjContentType;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *contentSwitchSegment;
+@property (strong, nonatomic) IBOutlet UIButton *messageButton;
 @property (retain, nonatomic) NSString *profileId;
 @property (retain, nonatomic) IBOutlet UITableView *contentView;
 
-@property (retain, nonatomic) NSMutableArray *profileData;
+@property (retain, nonatomic) NSMutableDictionary *profileData;
 @property (retain, nonatomic) NSMutableArray *dataSource;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *rankLabel;

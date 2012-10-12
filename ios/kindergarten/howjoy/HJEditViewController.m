@@ -7,6 +7,7 @@
 //
 
 #import "HJEditViewController.h"
+#import "MIRequestManager+API.h"
 
 @interface HJEditViewController ()
 
@@ -19,7 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.editType = HJEditTypeDefault;
     }
     return self;
 }
@@ -95,10 +96,12 @@
         default:
             break;
     }
-    if ([self.delegate respondsToSelector:@selector(textEditDidFinished:)]){
+    if (self.delegate && [self.delegate respondsToSelector:@selector(textEditDidFinished:)]){
         [self.delegate performSelector:@selector(textEditDidFinished:) withObject:self.editView.text];
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2] animated:YES];
+    }else{
+        
     }
-    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2] animated:YES];
 }
 
 

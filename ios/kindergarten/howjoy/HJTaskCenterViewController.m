@@ -13,6 +13,7 @@
 #import "MIRequestManager+API.h"
 #import "HJTaskCell.h"
 #import "MBProgressHUD.h"
+#import "HJSearchViewController.h"
 
 @interface HJTaskCenterViewController ()
 
@@ -25,6 +26,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shouldQueryApi:) name:@"MILoginDidFinishedSuccessfully" object:nil];
         self.title = NSLocalizedString(@"任务中心", @"Task Center");
         self.tabBarItem.image = [UIImage imageNamed:@"first"];
         self.sourceType = 0;
@@ -41,10 +43,36 @@
                                                                   style:UIBarButtonItemStyleBordered
                                                                  target:self
                                                                  action:@selector(createButtonTapped:)];
-    self.navigationItem.rightBarButtonItem = NavButton;
-    
+//    self.navigationItem.rightBarButtonItem = NavButton;
+    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchButtonTapped:)];
+    self.navigationItem.rightBarButtonItems = @[searchButton, NavButton];
+
     self.contentView.delegate = self;
     self.contentView.dataSource = self;
+}
+
+- (void)shouldQueryApi:(NSNotification *) n{
+    
+    NSLog(@"%@", n);
+    switch (self.sourceType) {
+        case 0:
+        {
+            [self queryTasks:@{@"scope": @"all"}];
+            break;
+        }
+        case 1:
+        {
+            [self queryTasks:@{@"scope": @"recommend"}];
+            break;
+        }
+        case 2:
+        {
+            [self queryTasks:@{@"scope": @"created"}];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 - (void)viewDidUnload
@@ -62,33 +90,25 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    switch (self.sourceType) {
-        case 0:
-        {
-            [self queryTasks:@{@"scope": @"all"}];
-            break;
-        }
-        case 1:
-        {
-            [self queryTasks:@{@"scope": @"parted"}];
-            break;
-        }
-        case 2:
-        {
-            [self queryTasks:@{@"scope": @"created"}];
-            break;
-        }
-        default:
-            break;
-    }
+    [self shouldQueryApi:nil];
 }
 
-- (IBAction)createButtonTapped : (id) sender {
+- (IBAction)createButtonTapped: (id) sender {
+//    UIActionSheet *select = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"发布独立任务", @"发布系列任务", nil];
+//    [select showFromBarButtonItem:sender animated:YES];
     HJCreateTaskViewController *creator = [[HJCreateTaskViewController alloc] initWithNibName:@"HJCreateTaskViewController" bundle:nil];
     creator.type = HJTaskTypeIndependentCreate;
     [self.navigationController pushViewController:creator animated:YES];
-//    UIActionSheet *select = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"发布独立任务", @"发布系列任务", nil];
-//    [select showFromBarButtonItem:sender animated:YES];
+}
+- (IBAction)searchButtonTapped: (id) sender {
+    HJSearchViewController *search = [[HJSearchViewController alloc] initWithNibName:@"HJSearchViewController" bundle:nil];
+    search.type = HJSearchViewTypeTask;
+    search.delegate = self;
+    [self presentModalViewController:search animated:YES];
+}
+- (IBAction)searchConfirmed: (NSString *)txt {
+    NSDictionary *params = @{@"scope": @"search", @"kw": @"wwwwwwwwww"};
+    [self queryTasks:params];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -212,7 +232,7 @@
                  @try {
                      NSArray *d = [resp objectForKey:@"d"];
                      self.dataSource = [NSMutableArray arrayWithArray:d];
-                     //Log(@"%@", self.dataSource);
+//                     Log(@"%@", self.dataSource);
                      
                      dispatch_async(dispatch_get_main_queue(), ^{
                          [self.contentView reloadData];

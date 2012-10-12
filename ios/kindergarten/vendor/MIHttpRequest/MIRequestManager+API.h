@@ -26,10 +26,11 @@
 - (void) apiFriendResponse:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
 - (void) apiFriendRemove:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
 - (void) apiInviteFriends:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
-
 - (void) apiSearches:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
-- (void) apiNotificationCenter:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
 
+- (void) apiSendMessage:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
+- (void) apiMessageCenter:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
+- (void) apiNotificationCenter:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
 - (void) apiFeedCenter:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
 - (void) apiFeedInfo:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
 
@@ -46,5 +47,6 @@
 
 - (void) apiFindProps:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
 - (void) apiUserProps:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
+- (void) apiUnlockCoupons:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
 
 @end

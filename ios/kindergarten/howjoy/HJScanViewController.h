@@ -18,8 +18,10 @@
 
 @property (nonatomic, retain) IBOutlet UIImageView *resultImage;
 @property (nonatomic, retain) IBOutlet UITextView *resultText;
+@property (retain, nonatomic) MBProgressHUD *hud;
 
 - (IBAction) scanButtonTapped;
 - (void) settleScanButton;
+- (void)unlockCoupons:(NSString *) txt;
 
 @end

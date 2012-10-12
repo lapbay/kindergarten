@@ -19,6 +19,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
+        self.selectionType = HJProfilePickerSelectionTypeMultiple;
     }
     return self;
 }
@@ -41,6 +42,23 @@
  
     UIBarButtonItem *NavButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"确定", @"Done") style:UIBarButtonItemStyleBordered target:self action:@selector(doneButtonTapped:)];
     self.navigationItem.rightBarButtonItem = NavButton;
+}
+- (IBAction)cancelButtonTapped : (id) sender {
+    if (self.navigationController.viewControllers.count > 1) {
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2] animated:YES];
+    }else{
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self dismissModalViewControllerAnimated:YES];
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    Log(@"%@", self.navigationController.navigationBar.backItem);
+    if (!self.navigationItem.leftBarButtonItem && !self.navigationController.navigationBar.backItem) {
+        UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"返回", @"Done") style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButtonTapped:)];
+        self.navigationItem.leftBarButtonItem = leftButton;
+    }
 }
 
 - (void)viewDidUnload
@@ -151,6 +169,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if (self.selectionType == HJProfilePickerSelectionTypeSingle) {
+        for (NSIndexPath *ip in self.selected){
+            UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:ip];
+            selectedCell.accessoryType = UITableViewCellAccessoryNone;
+            selectedCell = nil;
+        }
+        [self.selected removeAllObjects];
+    }
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone;
         [self.selected removeObjectForKey:indexPath];
@@ -167,11 +194,7 @@
         //[self.delegate performSelector:@selector(profileSelected:) withObject:selectedProfiles];
         [self.delegate performSelectorOnMainThread:@selector(profileSelected:) withObject:selectedProfiles waitUntilDone:[NSThread isMainThread]];
     }
-    if (self.navigationController.viewControllers.count > 1) {
-        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2] animated:YES];
-    }else{
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }
+    [self cancelButtonTapped:nil];
 }
 
 @end

@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    HJEditTypeDefault = 0,
+    HJEditTypeSendMessage,
+} HJEditType;
+
 @interface HJEditViewController : UIViewController {
     IBOutlet UITextView *editView;
     IBOutlet UIDatePicker *dateView;
 }
 
+@property(nonatomic, assign) HJEditType editType;
 @property (retain, nonatomic) IBOutlet UITextView *editView;
 @property (retain, nonatomic) IBOutlet UIDatePicker *dateView;
 @property (retain, nonatomic) id delegate;

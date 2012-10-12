@@ -186,6 +186,38 @@
 		F1B794641613410000C43849 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B794631613410000C43849 /* libiconv.dylib */; };
 		F1D8D90E1601D494000A401F /* HJTaskSeriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D8D90C1601D494000A401F /* HJTaskSeriesViewController.m */; };
 		F1D8D90F1601D494000A401F /* HJTaskSeriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D8D90D1601D494000A401F /* HJTaskSeriesViewController.xib */; };
+		F1EDB00016281A2900D197AA /* MIChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EDAFE716281A2900D197AA /* MIChatViewController.m */; };
+		F1EDB00116281A2900D197AA /* MIChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1EDAFE816281A2900D197AA /* MIChatViewController.xib */; };
+		F1EDB00216281A2900D197AA /* bubbleMine.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDAFEA16281A2900D197AA /* bubbleMine.png */; };
+		F1EDB00316281A2900D197AA /* bubbleMine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDAFEB16281A2900D197AA /* bubbleMine@2x.png */; };
+		F1EDB00416281A2900D197AA /* bubbleSomeone.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDAFEC16281A2900D197AA /* bubbleSomeone.png */; };
+		F1EDB00516281A2900D197AA /* bubbleSomeone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDAFED16281A2900D197AA /* bubbleSomeone@2x.png */; };
+		F1EDB00616281A2900D197AA /* missingAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDAFEE16281A2900D197AA /* missingAvatar.png */; };
+		F1EDB00716281A2900D197AA /* missingAvatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDAFEF16281A2900D197AA /* missingAvatar@2x.png */; };
+		F1EDB00816281A2900D197AA /* typingMine.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDAFF016281A2900D197AA /* typingMine.png */; };
+		F1EDB00916281A2900D197AA /* typingMine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDAFF116281A2900D197AA /* typingMine@2x.png */; };
+		F1EDB00A16281A2900D197AA /* typingSomeone.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDAFF216281A2900D197AA /* typingSomeone.png */; };
+		F1EDB00B16281A2900D197AA /* typingSomeone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDAFF316281A2900D197AA /* typingSomeone@2x.png */; };
+		F1EDB00C16281A2900D197AA /* NSBubbleData.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EDAFF616281A2900D197AA /* NSBubbleData.m */; };
+		F1EDB00D16281A2900D197AA /* UIBubbleHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EDAFF816281A2900D197AA /* UIBubbleHeaderTableViewCell.m */; };
+		F1EDB00E16281A2900D197AA /* UIBubbleTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EDAFFA16281A2900D197AA /* UIBubbleTableView.m */; };
+		F1EDB00F16281A2900D197AA /* UIBubbleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EDAFFC16281A2900D197AA /* UIBubbleTableViewCell.m */; };
+		F1EDB01016281A2900D197AA /* UIBubbleTypingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EDAFFF16281A2900D197AA /* UIBubbleTypingTableViewCell.m */; };
+		F1EDB02016281A3900D197AA /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EDB01416281A3900D197AA /* HPGrowingTextView.m */; };
+		F1EDB02116281A3900D197AA /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EDB01616281A3900D197AA /* HPTextViewInternal.m */; };
+		F1EDB02216281A3900D197AA /* MessageEntryBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDB01816281A3900D197AA /* MessageEntryBackground.png */; };
+		F1EDB02316281A3900D197AA /* MessageEntryBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDB01916281A3900D197AA /* MessageEntryBackground@2x.png */; };
+		F1EDB02416281A3900D197AA /* MessageEntryInputField.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDB01A16281A3900D197AA /* MessageEntryInputField.png */; };
+		F1EDB02516281A3900D197AA /* MessageEntryInputField@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDB01B16281A3900D197AA /* MessageEntryInputField@2x.png */; };
+		F1EDB02616281A3900D197AA /* MessageEntrySendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDB01C16281A3900D197AA /* MessageEntrySendButton.png */; };
+		F1EDB02716281A3900D197AA /* MessageEntrySendButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDB01D16281A3900D197AA /* MessageEntrySendButton@2x.png */; };
+		F1EDB02816281A3900D197AA /* MessageEntrySendButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDB01E16281A3900D197AA /* MessageEntrySendButtonPressed.png */; };
+		F1EDB02916281A3900D197AA /* MessageEntrySendButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1EDB01F16281A3900D197AA /* MessageEntrySendButtonPressed@2x.png */; };
+		F1EDB02F16281A6C00D197AA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EDB02E16281A6C00D197AA /* StoreKit.framework */; };
+		F1EDB03816281AE700D197AA /* HJChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EDB03116281AE700D197AA /* HJChatViewController.m */; };
+		F1EDB03916281AE700D197AA /* HJChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1EDB03216281AE700D197AA /* HJChatViewController.xib */; };
+		F1EDB03A16281AE700D197AA /* HJMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EDB03416281AE700D197AA /* HJMessageCenterViewController.m */; };
+		F1EDB03B16281AE700D197AA /* HJMessageCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1EDB03516281AE700D197AA /* HJMessageCenterViewController.xib */; };
 		F1EEED26160E2F2E0055E325 /* UMSNSLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EEED25160E2F2E0055E325 /* UMSNSLibrary.a */; };
 		F1FFA1121620804A008CFEC7 /* refreshArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FFA1101620804A008CFEC7 /* refreshArrowDown.png */; };
 		F1FFA1131620804A008CFEC7 /* refreshArrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = F1FFA1111620804A008CFEC7 /* refreshArrowUp.png */; };
@@ -453,6 +485,49 @@
 		F1D8D90B1601D494000A401F /* HJTaskSeriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTaskSeriesViewController.h; sourceTree = "<group>"; };
 		F1D8D90C1601D494000A401F /* HJTaskSeriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTaskSeriesViewController.m; sourceTree = "<group>"; };
 		F1D8D90D1601D494000A401F /* HJTaskSeriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJTaskSeriesViewController.xib; sourceTree = "<group>"; };
+		F1EDAFE616281A2900D197AA /* MIChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIChatViewController.h; sourceTree = "<group>"; };
+		F1EDAFE716281A2900D197AA /* MIChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIChatViewController.m; sourceTree = "<group>"; };
+		F1EDAFE816281A2900D197AA /* MIChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MIChatViewController.xib; sourceTree = "<group>"; };
+		F1EDAFEA16281A2900D197AA /* bubbleMine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubbleMine.png; sourceTree = "<group>"; };
+		F1EDAFEB16281A2900D197AA /* bubbleMine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubbleMine@2x.png"; sourceTree = "<group>"; };
+		F1EDAFEC16281A2900D197AA /* bubbleSomeone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubbleSomeone.png; sourceTree = "<group>"; };
+		F1EDAFED16281A2900D197AA /* bubbleSomeone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubbleSomeone@2x.png"; sourceTree = "<group>"; };
+		F1EDAFEE16281A2900D197AA /* missingAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missingAvatar.png; sourceTree = "<group>"; };
+		F1EDAFEF16281A2900D197AA /* missingAvatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "missingAvatar@2x.png"; sourceTree = "<group>"; };
+		F1EDAFF016281A2900D197AA /* typingMine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = typingMine.png; sourceTree = "<group>"; };
+		F1EDAFF116281A2900D197AA /* typingMine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "typingMine@2x.png"; sourceTree = "<group>"; };
+		F1EDAFF216281A2900D197AA /* typingSomeone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = typingSomeone.png; sourceTree = "<group>"; };
+		F1EDAFF316281A2900D197AA /* typingSomeone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "typingSomeone@2x.png"; sourceTree = "<group>"; };
+		F1EDAFF516281A2900D197AA /* NSBubbleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSBubbleData.h; sourceTree = "<group>"; };
+		F1EDAFF616281A2900D197AA /* NSBubbleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBubbleData.m; sourceTree = "<group>"; };
+		F1EDAFF716281A2900D197AA /* UIBubbleHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBubbleHeaderTableViewCell.h; sourceTree = "<group>"; };
+		F1EDAFF816281A2900D197AA /* UIBubbleHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBubbleHeaderTableViewCell.m; sourceTree = "<group>"; };
+		F1EDAFF916281A2900D197AA /* UIBubbleTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBubbleTableView.h; sourceTree = "<group>"; };
+		F1EDAFFA16281A2900D197AA /* UIBubbleTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBubbleTableView.m; sourceTree = "<group>"; };
+		F1EDAFFB16281A2900D197AA /* UIBubbleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBubbleTableViewCell.h; sourceTree = "<group>"; };
+		F1EDAFFC16281A2900D197AA /* UIBubbleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBubbleTableViewCell.m; sourceTree = "<group>"; };
+		F1EDAFFD16281A2900D197AA /* UIBubbleTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBubbleTableViewDataSource.h; sourceTree = "<group>"; };
+		F1EDAFFE16281A2900D197AA /* UIBubbleTypingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBubbleTypingTableViewCell.h; sourceTree = "<group>"; };
+		F1EDAFFF16281A2900D197AA /* UIBubbleTypingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBubbleTypingTableViewCell.m; sourceTree = "<group>"; };
+		F1EDB01316281A3900D197AA /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
+		F1EDB01416281A3900D197AA /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
+		F1EDB01516281A3900D197AA /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
+		F1EDB01616281A3900D197AA /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
+		F1EDB01816281A3900D197AA /* MessageEntryBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntryBackground.png; sourceTree = "<group>"; };
+		F1EDB01916281A3900D197AA /* MessageEntryBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntryBackground@2x.png"; sourceTree = "<group>"; };
+		F1EDB01A16281A3900D197AA /* MessageEntryInputField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntryInputField.png; sourceTree = "<group>"; };
+		F1EDB01B16281A3900D197AA /* MessageEntryInputField@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntryInputField@2x.png"; sourceTree = "<group>"; };
+		F1EDB01C16281A3900D197AA /* MessageEntrySendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntrySendButton.png; sourceTree = "<group>"; };
+		F1EDB01D16281A3900D197AA /* MessageEntrySendButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntrySendButton@2x.png"; sourceTree = "<group>"; };
+		F1EDB01E16281A3900D197AA /* MessageEntrySendButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntrySendButtonPressed.png; sourceTree = "<group>"; };
+		F1EDB01F16281A3900D197AA /* MessageEntrySendButtonPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntrySendButtonPressed@2x.png"; sourceTree = "<group>"; };
+		F1EDB02E16281A6C00D197AA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		F1EDB03016281AE700D197AA /* HJChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJChatViewController.h; sourceTree = "<group>"; };
+		F1EDB03116281AE700D197AA /* HJChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJChatViewController.m; sourceTree = "<group>"; };
+		F1EDB03216281AE700D197AA /* HJChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJChatViewController.xib; sourceTree = "<group>"; };
+		F1EDB03316281AE700D197AA /* HJMessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJMessageCenterViewController.h; sourceTree = "<group>"; };
+		F1EDB03416281AE700D197AA /* HJMessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJMessageCenterViewController.m; sourceTree = "<group>"; };
+		F1EDB03516281AE700D197AA /* HJMessageCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJMessageCenterViewController.xib; sourceTree = "<group>"; };
 		F1EEED25160E2F2E0055E325 /* UMSNSLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = UMSNSLibrary.a; sourceTree = "<group>"; };
 		F1FFA1101620804A008CFEC7 /* refreshArrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refreshArrowDown.png; sourceTree = "<group>"; };
 		F1FFA1111620804A008CFEC7 /* refreshArrowUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refreshArrowUp.png; sourceTree = "<group>"; };
@@ -463,6 +538,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1EDB02F16281A6C00D197AA /* StoreKit.framework in Frameworks */,
 				F193FBF316144CE6003A50AC /* MessageUI.framework in Frameworks */,
 				F1B794641613410000C43849 /* libiconv.dylib in Frameworks */,
 				F1B79462161340E400C43849 /* CoreMedia.framework in Frameworks */,
@@ -502,6 +578,7 @@
 		F14B327615D50138003DFF85 = {
 			isa = PBXGroup;
 			children = (
+				F1EDB02E16281A6C00D197AA /* StoreKit.framework */,
 				83E9D07C160E350E002AC5C3 /* Default-568h@2x.png */,
 				F1B793C91611CE2300C43849 /* resource */,
 				F14B32C415D8D032003DFF85 /* vendor */,
@@ -545,6 +622,12 @@
 		F14B328B15D50138003DFF85 /* howjoy */ = {
 			isa = PBXGroup;
 			children = (
+				F1EDB03016281AE700D197AA /* HJChatViewController.h */,
+				F1EDB03116281AE700D197AA /* HJChatViewController.m */,
+				F1EDB03216281AE700D197AA /* HJChatViewController.xib */,
+				F1EDB03316281AE700D197AA /* HJMessageCenterViewController.h */,
+				F1EDB03416281AE700D197AA /* HJMessageCenterViewController.m */,
+				F1EDB03516281AE700D197AA /* HJMessageCenterViewController.xib */,
 				830BEADF15F57B6600C73F5A /* view */,
 				F14B329415D50138003DFF85 /* HJAppDelegate.h */,
 				F14B329515D50138003DFF85 /* HJAppDelegate.m */,
@@ -632,6 +715,8 @@
 		F14B32C415D8D032003DFF85 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				F1EDB01216281A3900D197AA /* HPGrowingTextView */,
+				F1EDAFE416281A2900D197AA /* MIChatView */,
 				F1B7943616133FEE00C43849 /* ZBarSDK */,
 				F1B794061613038700C43849 /* fallTransaction */,
 				F189DDE315F0F2D900DC7BB9 /* ViewDeck */,
@@ -925,6 +1010,88 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		F1EDAFE416281A2900D197AA /* MIChatView */ = {
+			isa = PBXGroup;
+			children = (
+				F1EDAFE516281A2900D197AA /* ChatView */,
+				F1EDAFE916281A2900D197AA /* images */,
+				F1EDAFF416281A2900D197AA /* UIBubbleTableView */,
+			);
+			path = MIChatView;
+			sourceTree = "<group>";
+		};
+		F1EDAFE516281A2900D197AA /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				F1EDAFE616281A2900D197AA /* MIChatViewController.h */,
+				F1EDAFE716281A2900D197AA /* MIChatViewController.m */,
+				F1EDAFE816281A2900D197AA /* MIChatViewController.xib */,
+			);
+			path = ChatView;
+			sourceTree = "<group>";
+		};
+		F1EDAFE916281A2900D197AA /* images */ = {
+			isa = PBXGroup;
+			children = (
+				F1EDAFEA16281A2900D197AA /* bubbleMine.png */,
+				F1EDAFEB16281A2900D197AA /* bubbleMine@2x.png */,
+				F1EDAFEC16281A2900D197AA /* bubbleSomeone.png */,
+				F1EDAFED16281A2900D197AA /* bubbleSomeone@2x.png */,
+				F1EDAFEE16281A2900D197AA /* missingAvatar.png */,
+				F1EDAFEF16281A2900D197AA /* missingAvatar@2x.png */,
+				F1EDAFF016281A2900D197AA /* typingMine.png */,
+				F1EDAFF116281A2900D197AA /* typingMine@2x.png */,
+				F1EDAFF216281A2900D197AA /* typingSomeone.png */,
+				F1EDAFF316281A2900D197AA /* typingSomeone@2x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		F1EDAFF416281A2900D197AA /* UIBubbleTableView */ = {
+			isa = PBXGroup;
+			children = (
+				F1EDAFF516281A2900D197AA /* NSBubbleData.h */,
+				F1EDAFF616281A2900D197AA /* NSBubbleData.m */,
+				F1EDAFF716281A2900D197AA /* UIBubbleHeaderTableViewCell.h */,
+				F1EDAFF816281A2900D197AA /* UIBubbleHeaderTableViewCell.m */,
+				F1EDAFF916281A2900D197AA /* UIBubbleTableView.h */,
+				F1EDAFFA16281A2900D197AA /* UIBubbleTableView.m */,
+				F1EDAFFB16281A2900D197AA /* UIBubbleTableViewCell.h */,
+				F1EDAFFC16281A2900D197AA /* UIBubbleTableViewCell.m */,
+				F1EDAFFD16281A2900D197AA /* UIBubbleTableViewDataSource.h */,
+				F1EDAFFE16281A2900D197AA /* UIBubbleTypingTableViewCell.h */,
+				F1EDAFFF16281A2900D197AA /* UIBubbleTypingTableViewCell.m */,
+			);
+			path = UIBubbleTableView;
+			sourceTree = "<group>";
+		};
+		F1EDB01216281A3900D197AA /* HPGrowingTextView */ = {
+			isa = PBXGroup;
+			children = (
+				F1EDB01316281A3900D197AA /* HPGrowingTextView.h */,
+				F1EDB01416281A3900D197AA /* HPGrowingTextView.m */,
+				F1EDB01516281A3900D197AA /* HPTextViewInternal.h */,
+				F1EDB01616281A3900D197AA /* HPTextViewInternal.m */,
+				F1EDB01716281A3900D197AA /* images */,
+			);
+			path = HPGrowingTextView;
+			sourceTree = "<group>";
+		};
+		F1EDB01716281A3900D197AA /* images */ = {
+			isa = PBXGroup;
+			children = (
+				F1EDB01816281A3900D197AA /* MessageEntryBackground.png */,
+				F1EDB01916281A3900D197AA /* MessageEntryBackground@2x.png */,
+				F1EDB01A16281A3900D197AA /* MessageEntryInputField.png */,
+				F1EDB01B16281A3900D197AA /* MessageEntryInputField@2x.png */,
+				F1EDB01C16281A3900D197AA /* MessageEntrySendButton.png */,
+				F1EDB01D16281A3900D197AA /* MessageEntrySendButton@2x.png */,
+				F1EDB01E16281A3900D197AA /* MessageEntrySendButtonPressed.png */,
+				F1EDB01F16281A3900D197AA /* MessageEntrySendButtonPressed@2x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		F1FFA10F1620804A008CFEC7 /* refresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -1094,6 +1261,27 @@
 				F176945C161F132600DDB1CC /* HJEditViewController~ipad.xib in Resources */,
 				F1FFA1121620804A008CFEC7 /* refreshArrowDown.png in Resources */,
 				F1FFA1131620804A008CFEC7 /* refreshArrowUp.png in Resources */,
+				F1EDB00116281A2900D197AA /* MIChatViewController.xib in Resources */,
+				F1EDB00216281A2900D197AA /* bubbleMine.png in Resources */,
+				F1EDB00316281A2900D197AA /* bubbleMine@2x.png in Resources */,
+				F1EDB00416281A2900D197AA /* bubbleSomeone.png in Resources */,
+				F1EDB00516281A2900D197AA /* bubbleSomeone@2x.png in Resources */,
+				F1EDB00616281A2900D197AA /* missingAvatar.png in Resources */,
+				F1EDB00716281A2900D197AA /* missingAvatar@2x.png in Resources */,
+				F1EDB00816281A2900D197AA /* typingMine.png in Resources */,
+				F1EDB00916281A2900D197AA /* typingMine@2x.png in Resources */,
+				F1EDB00A16281A2900D197AA /* typingSomeone.png in Resources */,
+				F1EDB00B16281A2900D197AA /* typingSomeone@2x.png in Resources */,
+				F1EDB02216281A3900D197AA /* MessageEntryBackground.png in Resources */,
+				F1EDB02316281A3900D197AA /* MessageEntryBackground@2x.png in Resources */,
+				F1EDB02416281A3900D197AA /* MessageEntryInputField.png in Resources */,
+				F1EDB02516281A3900D197AA /* MessageEntryInputField@2x.png in Resources */,
+				F1EDB02616281A3900D197AA /* MessageEntrySendButton.png in Resources */,
+				F1EDB02716281A3900D197AA /* MessageEntrySendButton@2x.png in Resources */,
+				F1EDB02816281A3900D197AA /* MessageEntrySendButtonPressed.png in Resources */,
+				F1EDB02916281A3900D197AA /* MessageEntrySendButtonPressed@2x.png in Resources */,
+				F1EDB03916281AE700D197AA /* HJChatViewController.xib in Resources */,
+				F1EDB03B16281AE700D197AA /* HJMessageCenterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1159,6 +1347,16 @@
 				F1B794151613038700C43849 /* FlipTransitions.m in Sources */,
 				F1B7942F16133F8100C43849 /* HJScanViewController.m in Sources */,
 				F176945A161F132600DDB1CC /* HJEditViewController.m in Sources */,
+				F1EDB00016281A2900D197AA /* MIChatViewController.m in Sources */,
+				F1EDB00C16281A2900D197AA /* NSBubbleData.m in Sources */,
+				F1EDB00D16281A2900D197AA /* UIBubbleHeaderTableViewCell.m in Sources */,
+				F1EDB00E16281A2900D197AA /* UIBubbleTableView.m in Sources */,
+				F1EDB00F16281A2900D197AA /* UIBubbleTableViewCell.m in Sources */,
+				F1EDB01016281A2900D197AA /* UIBubbleTypingTableViewCell.m in Sources */,
+				F1EDB02016281A3900D197AA /* HPGrowingTextView.m in Sources */,
+				F1EDB02116281A3900D197AA /* HPTextViewInternal.m in Sources */,
+				F1EDB03816281AE700D197AA /* HJChatViewController.m in Sources */,
+				F1EDB03A16281AE700D197AA /* HJMessageCenterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

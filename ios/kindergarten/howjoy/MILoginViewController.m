@@ -8,13 +8,14 @@
 
 #import "MILoginViewController.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "IIViewDeckController.h"
 
 @interface MILoginViewController ()
 
 @end
 
 @implementation MILoginViewController
-@synthesize submitButton, hud, userField, pswdField;
+@synthesize submitButton, userField, pswdField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,10 +33,6 @@
     // Do any additional setup after loading the view from its nib.
     self.userField.delegate = self;
     self.pswdField.delegate = self;
-    self.hud = [[MBProgressHUD alloc] initWithView:self.view];
-	[self.view addSubview:self.hud];
-//    self.hud.delegate = self;
-    self.hud.labelText = @"正在查询...";
 }
 
 - (void)viewDidUnload
@@ -93,14 +90,9 @@
     if (token) {
         [inputs setValue:token forKey:@"ios_token"];
     }
-    [self.hud show:YES];
     MIRequestManager *manager = [MIRequestManager requestManager];
     [manager apiUserLogin:inputs withFinishHandler:^(NSURLResponse *response, NSData *rData, NSError *error)
      {
-         dispatch_async(dispatch_get_main_queue(), ^{
-             [self.hud hide:YES];
-         });
-
          if ([rData length] > 0 && error == nil){
              //NSLog(@"%@", [[NSString alloc] initWithData:rData encoding:NSUTF8StringEncoding]);
              NSMutableDictionary *resp = [NSMutableDictionary dictionaryWithDictionary:[rData JSONValue]];
@@ -112,7 +104,7 @@
                      [userDefaults setBool:YES forKey:@"login"];
                      [userDefaults setValue:[d objectForKey:@"token"] forKey:@"token"];
                      [userDefaults setValue:d forKey:@"user"];
-                     NSLog(@"%@",d);
+                     //NSLog(@"%@",d);
                      NSString *cookie = [[(NSHTTPURLResponse *) response allHeaderFields] objectForKey:@"Set-Cookie"];
                      if (cookie) {
                          NSDictionary *cookie_pair = [NSDictionary dictionaryWithObject:cookie forKey:MIAPIHost];
@@ -175,9 +167,6 @@
          }
      } withErrorHandler:^(NSURLResponse *response, NSData *data, NSError *error)
      {
-         dispatch_async(dispatch_get_main_queue(), ^{
-             [self.hud hide:YES];
-         });
      }];
 }
 

@@ -11,6 +11,7 @@
 #import "MILoginViewController.h"
 
 #import "HJNotificationCenterViewController.h"
+#import "HJMessageCenterViewController.h"
 #import "HJFeedCenterViewController.h"
 #import "HJRecordViewController.h"
 #import "HJTaskCenterViewController.h"
@@ -35,14 +36,16 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = NSLocalizedString(@"菜单", @"Menu");
+
         self.data = [NSMutableArray arrayWithObjects:
                      [NSMutableArray arrayWithObjects:@"个人资料", nil],
                      [NSMutableArray arrayWithObjects:@"任务中心", @"所有", @"推荐", nil],
-                     [NSMutableArray arrayWithObjects:@"情报站", @"消息中心", @"通知中心", nil],
-                     [NSMutableArray arrayWithObjects:@"搜索", @"任务", @"好友", nil],
+                     [NSMutableArray arrayWithObjects:@"情报站", @"消息", @"通知", @"私信", nil],
+//                     [NSMutableArray arrayWithObjects:@"搜索", @"好友", @"任务", nil],
+                     [NSMutableArray arrayWithObjects:@"搜索", @"好友", nil],
                      [NSMutableArray arrayWithObjects:@"更多", @"设置", nil],
                      nil];
-        [[NSNotificationCenter defaultCenter] addObserver:tableView selector:@selector(reloadData) name:@"MILoginDidFinishedSuccessfully" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shouldReloadViews:) name:@"MILoginDidFinishedSuccessfully" object:nil];
     }
     return self;
 }
@@ -89,6 +92,13 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)shouldReloadViews:(NSNotification *) n{
+    Log(@"%@", n);
+    //[self.tableView reloadData];
+//    [self.viewDeckController toggleLeftView];
+//    [self tableView: self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
 }
 
 #pragma mark - Table view data source
@@ -164,7 +174,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     [self.viewDeckController closeLeftViewBouncing:^(IIViewDeckController *controller) {
+
         if ([controller.centerController isKindOfClass:[UINavigationController class]]) {
             UIViewController *viewController;
 
@@ -178,6 +190,7 @@
                 {
                     viewController = [[HJTaskCenterViewController alloc] initWithNibName:@"HJTaskCenterViewController" bundle:nil];
                     ((HJTaskCenterViewController *)viewController).sourceType = indexPath.row;
+                    [((HJTaskCenterViewController *)viewController) shouldQueryApi:nil];
                     break;
                 }
                 case 2:
@@ -193,6 +206,11 @@
                             viewController = [[HJNotificationCenterViewController alloc] initWithNibName:@"HJNotificationCenterViewController" bundle:nil];
                             break;
                         }
+                        case 2:
+                        {
+                            viewController = [[HJMessageCenterViewController alloc] initWithNibName:@"HJMessageCenterViewController" bundle:nil];
+                            break;
+                        }
                         default:
                             break;
                     }
@@ -204,13 +222,13 @@
                         case 0:
                         {
                             viewController = [[HJSearchViewController alloc] initWithNibName:@"HJSearchViewController" bundle:nil];
-                            ((HJSearchViewController *)viewController).type = HJSearchViewTypeTask;
+                            ((HJSearchViewController *)viewController).type = HJSearchViewTypeProfile;
                             break;
                         }
                         case 1:
                         {
                             viewController = [[HJSearchViewController alloc] initWithNibName:@"HJSearchViewController" bundle:nil];
-                            ((HJSearchViewController *)viewController).type = HJSearchViewTypeProfile;
+                            ((HJSearchViewController *)viewController).type = HJSearchViewTypeTask;
                             break;
                         }
                         default:

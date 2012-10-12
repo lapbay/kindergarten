@@ -16,6 +16,8 @@
 @property (retain, nonatomic) NSMutableArray *dataSource;
 @property (assign, nonatomic) NSInteger sourceType;
 
+- (void)shouldQueryApi:(NSNotification *) n;
 - (IBAction)createButtonTapped : (id) sender;
+- (IBAction)searchConfirmed: (NSString *)txt;
 
 @end

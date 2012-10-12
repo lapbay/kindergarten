@@ -135,6 +135,21 @@
     [MIURLConnection sendAsynchronousRequest:request queue:self completionHandler:finishHandler errorHandler:errorHandler];
 }
 
+- (void) apiSendMessage:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler {
+    NSString *uri = [NSString stringWithFormat:@"%@/messages.json", MIAPIHost];
+    MIRequest *request = [[MIRequest alloc] initWithURLString:uri];
+    request.HTTPMethod = @"POST";
+    
+    request.allHTTPHeaderFields = [NSMutableDictionary dictionaryWithObjectsAndKeys: @"1.0", @"APIVersion", @"gzip,deflate", @"Accept-Encoding", nil];
+    NSMutableDictionary *postStrings = [self fetchAPIEnvironment];
+    if (url.count > 0) {
+        [postStrings addEntriesFromDictionary:url];
+    }
+    request.postStrings = postStrings;
+    
+    [MIURLConnection sendAsynchronousRequest:request queue:self completionHandler:finishHandler errorHandler:errorHandler];
+}
+
 - (void) apiInviteFriends:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler {
     NSString *uri = [NSString stringWithFormat:@"%@/notifications.json", MIAPIHost];
     MIRequest *request = [[MIRequest alloc] initWithURLString:uri];
@@ -200,6 +215,21 @@
     NSString *uri = [NSString stringWithFormat:@"%@/profiles/self/friendships/%@.json", MIAPIHost, [url objectForKey:@"id"]];
     MIRequest *request = [[MIRequest alloc] initWithURLString:uri];
     request.HTTPMethod = @"DELETE";
+    
+    request.allHTTPHeaderFields = [NSMutableDictionary dictionaryWithObjectsAndKeys: @"1.0", @"APIVersion", @"gzip,deflate", @"Accept-Encoding", nil];
+    NSMutableDictionary *getParams = [self fetchAPIEnvironment];
+    if (url.count > 0) {
+        [getParams addEntriesFromDictionary:url];
+    }
+    request.getParams = getParams;
+    
+    [MIURLConnection sendAsynchronousRequest:request queue:self completionHandler:finishHandler errorHandler:errorHandler];
+}
+
+- (void) apiMessageCenter:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler {
+    NSString *uri = [NSString stringWithFormat:@"%@/messages.json", MIAPIHost];
+    MIRequest *request = [[MIRequest alloc] initWithURLString:uri];
+    request.HTTPMethod = @"GET";
     
     request.allHTTPHeaderFields = [NSMutableDictionary dictionaryWithObjectsAndKeys: @"1.0", @"APIVersion", @"gzip,deflate", @"Accept-Encoding", nil];
     NSMutableDictionary *getParams = [self fetchAPIEnvironment];
@@ -410,6 +440,21 @@
     NSString *uri = [NSString stringWithFormat:@"%@/profiles/self/props/%@.json", MIAPIHost, [url objectForKey:@"id"]];
     MIRequest *request = [[MIRequest alloc] initWithURLString:uri];
     request.HTTPMethod = @"GET";
+    
+    request.allHTTPHeaderFields = [NSMutableDictionary dictionaryWithObjectsAndKeys: @"1.0", @"APIVersion", @"gzip,deflate", @"Accept-Encoding", nil];
+    NSMutableDictionary *getParams = [self fetchAPIEnvironment];
+    if (url.count > 0) {
+        [getParams addEntriesFromDictionary:url];
+    }
+    request.getParams = getParams;
+    
+    [MIURLConnection sendAsynchronousRequest:request queue:self completionHandler:finishHandler errorHandler:errorHandler];
+}
+
+- (void) apiUnlockCoupons:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler {
+    NSString *uri = [NSString stringWithFormat:@"%@/coupons.json", MIAPIHost];
+    MIRequest *request = [[MIRequest alloc] initWithURLString:uri];
+    request.HTTPMethod = @"POST";
     
     request.allHTTPHeaderFields = [NSMutableDictionary dictionaryWithObjectsAndKeys: @"1.0", @"APIVersion", @"gzip,deflate", @"Accept-Encoding", nil];
     NSMutableDictionary *getParams = [self fetchAPIEnvironment];

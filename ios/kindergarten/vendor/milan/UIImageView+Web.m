@@ -20,26 +20,33 @@
 
 - (void)loadWebImage:(NSString *)URL withIndex:(NSString *)index{
     MIRequestManager *manager = [MIRequestManager requestManager];
-    [manager fileLoader:URL withFinishHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+    [manager fileCacher:URL withFinishHandler:^(NSURLResponse *response, NSData *data, NSError *error)
      {
          if ([data length] > 0 && error == nil){
              UIImage *theImage = [UIImage imageWithData:data];
              dispatch_async(dispatch_get_main_queue(), ^{
+                 self.contentMode = UIViewContentModeScaleAspectFill;
+                 self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.width * theImage.size.height / theImage.size.width);
+                 if (self.superview && [self.superview isKindOfClass:[UIScrollView class]]) {
+                     ((UIScrollView *)self.superview).contentSize =CGSizeMake(self.frame.size.width, self.frame.size.height);
+                     
+                     ((UIScrollView *)self.superview).maximumZoomScale = MAX(theImage.size.width/self.frame.size.width, theImage.size.height/self.frame.size.height);
+                 }
                  self.image = theImage;
              });
          }
      } withDownloadHandler:^(NSURLConnection *connection, NSInteger totalBytesReceived, NSInteger totalBytesExpectedToReceive)
      {
-//         NSLog(@"load web image progress: %i, %i", totalBytesReceived, totalBytesExpectedToReceive);
-//         dispatch_async(dispatch_get_main_queue(), ^{
-//         });
+         //         NSLog(@"load web image progress: %i, %i", totalBytesReceived, totalBytesExpectedToReceive);
+         //         dispatch_async(dispatch_get_main_queue(), ^{
+         //         });
      }];
 }
 
 - (void)loadWebImages:(NSArray *)URLs withIndex:(NSString *)index{
     self.animationDuration = 3;
     MIRequestManager *manager = [MIRequestManager requestManager];
-//    NSInteger i = 0;
+    //    NSInteger i = 0;
     for (NSString *URL in URLs) {
         [manager fileLoader:URL withFinishHandler:^(NSURLResponse *response, NSData *data, NSError *error)
          {
@@ -60,9 +67,9 @@
              }
          } withDownloadHandler:^(NSURLConnection *connection, NSInteger totalBytesReceived, NSInteger totalBytesExpectedToReceive)
          {
-//             NSLog(@"load web image progress: %i, %i", totalBytesReceived, totalBytesExpectedToReceive);
-//             dispatch_async(dispatch_get_main_queue(), ^{
-//             });
+             //             NSLog(@"load web image progress: %i, %i", totalBytesReceived, totalBytesExpectedToReceive);
+             //             dispatch_async(dispatch_get_main_queue(), ^{
+             //             });
          }];
     }
 }
@@ -91,6 +98,10 @@
             });
         }
 	});
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    NSLog(@"error");
 }
 
 @end
