@@ -14,6 +14,7 @@ class Profile
   has_many    :props, class_name: "UserProp", inverse_of: :profile, autosave: true
 
   field :name,              :type => String, :default => ""
+  field :avatar,            :type => String, :default => ""
   field :start_at,          :type => Time
 
   validates_presence_of :name

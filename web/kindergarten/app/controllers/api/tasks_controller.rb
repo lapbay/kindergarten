@@ -21,12 +21,22 @@ class Api::TasksController < HowjoyController
               task = {:type => t.type, :_id => t.id, :name => t.name, :start_at => t.start_at.strftime("%Y-%m-%d|%H:%M"), :place => t.place, :count => count}
               resp << task
             end
-          end
+            end
+        when 'search'
+            keyword = params['kw']
+            #tasks = Task.where(:status.exists => true, :type => {:$lte => 1}).limit(20)
+            tasks = Task.where(:status.exists => true, :type => {:$lte => 1}, :name => {:$in => [keyword]}).limit(20)
+            if tasks
+              tasks.each do |t|
+                task = {:type => t.type, :_id => t.id, :name => t.name, :start_at => t.start_at.strftime("%Y-%m-%d|%H:%M"), :place => t.place, :count => count}
+                resp << task
+              end
+            end
         when 'recommend'
           tasks = Task.all.limit(20)
           if tasks
             tasks.each do |t|
-              task = {:type => t.type, :_id => t.task_id, :name => t.name, :start_at => t.start_at.strftime("%Y-%m-%d|%H:%M"), :place => t.place, :count => count}
+              task = {:type => t.type, :_id => t.id, :name => t.name, :start_at => t.start_at.strftime("%Y-%m-%d|%H:%M"), :place => t.place, :count => count}
               resp << task
             end
           end

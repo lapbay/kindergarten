@@ -19,9 +19,11 @@ Howjoy::Application.routes.draw do
 
     resources :feeds, :only=>[:show, :index]
     resources :notifications, :only=>[:create, :index]
+    resources :messages, :only=>[:create, :index]
 
     resources :costumes, :only=>[:show, :index]
     resources :props, :only=>[:show, :index]
+    resources :coupons, :only=>[:create, :show, :index]
     resources :records, :only=>[:show, :create, :index]
 
     resources :tasks
