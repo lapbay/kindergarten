@@ -15,24 +15,21 @@ puts 'New user created: ' << user1.name
 user2 = User.create! :name => 'Second User', :email => 'user2@howjoy.com', :password => 'please', :password_confirmation => 'please'
 puts 'New user created: ' << user2.name
 
+puts 'SETTING UP DEFAULT CLASS'
+class_unit1 = ClassUnit.create! :name => '一班', :grade => 1
+puts 'New class created: ' << class_unit1.name
+
+class_unit2 = ClassUnit.create! :name => '二班', :grade => 2
+puts 'New class created: ' << class_unit2.name
+
 puts 'SETTING UP DEFAULT TASK'
 task1 = Task.create! :type => 0, :name => '默认创建的任务', :desc => '默认创建的任务', :deadline => Time.now, :start_at => Time.now, :categories => ['默认'], :place => '海淀区苏州街', loc: [0.0, 0.0], bonus: '20块钱'
 puts 'New task created: ' << task1.name
 
-puts 'SETTING UP DEFAULT COSTUME'
-costume1 = Costume.create! :name => 'test costume', :resource => 'http://www.baidu.com/img/baidu_sylogo1.gif', :type => 0
-puts 'New costume created: ' << costume1.name
-
-puts 'SETTING UP DEFAULT USER COSTUME'
-user_costume1 = UserCostume.new(costume_id: costume1.id)
-puts 'New user_costume created: ' << user_costume1.costume_id
-
 puts 'SETTING UP DEFAULT USER PROFILE'
 profile1 = Profile.new(name: '号角管理员', start_at: Time.now)
-profile1.costumes << user_costume1
 puts 'New profile created: ' << profile1.name
 profile2 = Profile.new(name: '测试用户', start_at: Time.now)
-profile2.costumes << user_costume1
 puts 'New profile created: ' << profile2.id.to_s
 
 puts 'SETTING UP DEFAULT USER TASK'
@@ -65,3 +62,6 @@ task1.update
 
 user1.profile = profile1
 user2.profile = profile2
+
+class_unit1.profiles << profile1
+class_unit2.profiles << profile2

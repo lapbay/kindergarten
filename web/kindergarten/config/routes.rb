@@ -3,6 +3,9 @@ Howjoy::Application.routes.draw do
     root :to => 'home#index'
   end
   root :to => "home#index"
+  devise_scope :user do
+    #post "/users", :as => "user_registration", :action => "create", :to => "api/registrations"
+  end
   devise_for :users
   resources :users, :only => [:show, :index]
 
@@ -11,8 +14,6 @@ Howjoy::Application.routes.draw do
 
     resources :profiles, :only=>[:show, :index] do
       resources :friendships, :controller => "friendships", :except=>[:edit, :new]
-      resources :props, :only => [:show, :index, :create], :controller => "user_props"
-      resources :costumes, :controller => "user_costumes"
       resources :tasks, :controller => "user_tasks"
       resources :feeds, :only=>[:index], :controller => "user_feeds"
     end
@@ -21,9 +22,6 @@ Howjoy::Application.routes.draw do
     resources :notifications, :only=>[:create, :index]
     resources :messages, :only=>[:create, :index]
 
-    resources :costumes, :only=>[:show, :index]
-    resources :props, :only=>[:show, :index]
-    resources :coupons, :only=>[:create, :show, :index]
     resources :records, :only=>[:show, :create, :index]
 
     resources :tasks

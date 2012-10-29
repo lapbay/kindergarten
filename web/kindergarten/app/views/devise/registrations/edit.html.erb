@@ -17,6 +17,13 @@
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
 
+  <div>class: <select>
+  <% ClassUnit.all.each do |class_unit| %>
+    <option value="<%= class_unit.id %>" <%= current_user.profile.class_unit.id == class_unit.id ? raw('selected="selected"') : ""%>><%= class_unit.name %></option>
+  <% end %>
+  </select>
+  </div>
+
   <div><%= f.submit "Update" %></div>
 <% end %>
 

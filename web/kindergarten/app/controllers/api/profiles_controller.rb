@@ -5,7 +5,7 @@ class Api::ProfilesController < HowjoyController
 
   def index
     if request.format == :json
-      profiles = Profile.all
+      profiles = Profile.where(class_unit: current_user.profile.class_unit.id)
       render :status=>200, :json=>{:c=>200, :d=>profiles}
     end
   end

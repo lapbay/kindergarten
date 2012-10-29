@@ -3,7 +3,7 @@ class Profile
   #include Mongoid::Timestamps
 
   belongs_to  :user
-  embeds_many :costumes, class_name: "UserCostume"
+  belongs_to  :class_unit
   embeds_many :requests, class_name: "FriendRequest"
   has_one     :social, autosave: true
   has_many    :feeds, autosave: true
@@ -11,7 +11,6 @@ class Profile
   has_many    :records, autosave: true
   has_many    :owns, class_name: "Task", inverse_of: :profile, autosave: true
   has_many    :tasks, class_name: "UserTask", inverse_of: :profile, autosave: true
-  has_many    :props, class_name: "UserProp", inverse_of: :profile, autosave: true
 
   field :name,              :type => String, :default => ""
   field :avatar,            :type => String, :default => ""
