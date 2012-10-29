@@ -4,7 +4,7 @@ Howjoy::Application.routes.draw do
   end
   root :to => "home#index"
   devise_scope :user do
-    #post "/users", :as => "user_registration", :action => "create", :to => "api/registrations"
+    post "/users", :as => "user_registration", :action => "create", :to => "api/registrations"
   end
   devise_for :users
   resources :users, :only => [:show, :index]
