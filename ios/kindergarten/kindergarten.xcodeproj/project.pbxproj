@@ -599,7 +599,6 @@
 		F14B327615D50138003DFF85 = {
 			isa = PBXGroup;
 			children = (
-				F1EDB02E16281A6C00D197AA /* StoreKit.framework */,
 				83E9D07C160E350E002AC5C3 /* Default-568h@2x.png */,
 				F1B793C91611CE2300C43849 /* resource */,
 				F14B32C415D8D032003DFF85 /* vendor */,
@@ -620,6 +619,7 @@
 		F14B328415D50138003DFF85 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F1EDB02E16281A6C00D197AA /* StoreKit.framework */,
 				F193FBF216144CE6003A50AC /* MessageUI.framework */,
 				F1B794631613410000C43849 /* libiconv.dylib */,
 				F1B79461161340E400C43849 /* CoreMedia.framework */,

@@ -41,6 +41,8 @@
 - (void) apiTaskInfo:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
 - (void) apiTaskUpdate:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
 
+- (void) apiBookCenter:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
+
 - (void) apiJoinTask:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
 - (void) apiDoingTask:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;
 - (void) apiFinishTask:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler;

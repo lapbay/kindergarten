@@ -19,6 +19,7 @@ Howjoy::Application.routes.draw do
     end
 
     resources :feeds
+    resources :books
     resources :notifications, :only=>[:create, :index]
     resources :messages, :only=>[:create, :index]
 

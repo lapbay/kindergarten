@@ -302,6 +302,21 @@
     [MIURLConnection sendAsynchronousRequest:request queue:self completionHandler:finishHandler errorHandler:errorHandler];
 }
 
+- (void) apiBookCenter:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler {
+    NSString *uri = [NSString stringWithFormat:@"%@/books.json", MIAPIHost];
+    MIRequest *request = [[MIRequest alloc] initWithURLString:uri];
+    request.HTTPMethod = @"GET";
+    
+    request.allHTTPHeaderFields = [NSMutableDictionary dictionaryWithObjectsAndKeys: @"1.0", @"APIVersion", @"gzip,deflate", @"Accept-Encoding", nil];
+    NSMutableDictionary *getParams = [self fetchAPIEnvironment];
+    if (url.count > 0) {
+        [getParams addEntriesFromDictionary:url];
+    }
+    request.getParams = getParams;
+    
+    [MIURLConnection sendAsynchronousRequest:request queue:self completionHandler:finishHandler errorHandler:errorHandler];
+}
+
 - (void) apiUserTasks:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler {
     NSString *uri = [NSString stringWithFormat:@"%@/profiles/%@/tasks.json", MIAPIHost, [url objectForKey:@"id"]];
     MIRequest *request = [[MIRequest alloc] initWithURLString:uri];

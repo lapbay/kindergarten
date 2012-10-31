@@ -65,3 +65,7 @@ user2.profile = profile2
 
 class_unit1.profiles << profile1
 class_unit2.profiles << profile2
+
+puts 'SETTING UP DEFAULT BOOK'
+book1 = Book.create!(title: 'book title again', desc: 'book desc again', path: 'static/a/b/c.html', url: 'http://www.apple.com/')
+puts 'New book created: ' << book1.title

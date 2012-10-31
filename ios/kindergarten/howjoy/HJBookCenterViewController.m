@@ -124,7 +124,7 @@
     }
     
     cell.titleLabel.text = [cellData objectForKey:@"title"];
-    cell.placeLabel.text = [cellData objectForKey:@"content"];
+    cell.placeLabel.text = [cellData objectForKey:@"desc"];
 
     cell.textLabel.backgroundColor = [UIColor clearColor];
 	[self configureCell:cell atIndexPath:indexPath];
@@ -145,7 +145,7 @@
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:web animated:YES];
     self.hidesBottomBarWhenPushed = NO;
-    [web loadWebPageWithURLString:@"http://www.baidu.com"];
+    [web loadWebPageWithURLString: [cellData objectForKey:@"url"]];
 }
 
 
@@ -164,7 +164,7 @@
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%i", self.pageDown], @"page", nil];
 
     MIRequestManager *manager = [MIRequestManager requestManager];
-    [manager apiFeedCenter:params withFinishHandler:^(NSURLResponse *response, NSData *rData, NSError *error)
+    [manager apiBookCenter:params withFinishHandler:^(NSURLResponse *response, NSData *rData, NSError *error)
      {
          dispatch_async(dispatch_get_main_queue(), ^{
              [self performSelectorOnMainThread:@selector(stopAction) withObject:nil waitUntilDone:[NSThread isMainThread]];
