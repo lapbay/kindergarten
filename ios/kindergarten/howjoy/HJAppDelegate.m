@@ -26,7 +26,9 @@
         self.loginController = [[MILoginViewController alloc] initWithNibName:@"MILoginViewController" bundle:nil];
 //        [self.tabBarController.view addSubview: self.loginController.view];
         [self.tabBarController.view addSubview: self.loginController.view];
-
+    }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"MILoginDidFinishedSuccessfully" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification* n){
+        [self.tabBarController setSelectedIndex:0];
     }];
 
     HJFeedCenterViewController *viewController1 = [[HJFeedCenterViewController alloc] initWithNibName:@"HJFeedCenterViewController" bundle:nil];
