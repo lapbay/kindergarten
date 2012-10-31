@@ -695,7 +695,6 @@
             }else{
                 data = [subtasks objectAtIndex:indexPath.row];
                 HJTaskViewController *task = [[HJTaskViewController alloc] initWithNibName:@"HJTaskViewController" bundle:nil];
-                task.superTaskId = self.taskId;
                 if ([data objectForKey:@"id"]) {
                     task.taskId = [data objectForKey:@"id"];
                 }else{

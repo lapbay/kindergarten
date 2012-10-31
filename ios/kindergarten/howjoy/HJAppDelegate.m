@@ -28,7 +28,7 @@
         [self.tabBarController.view addSubview: self.loginController.view];
     }];
     [[NSNotificationCenter defaultCenter] addObserverForName:@"MILoginDidFinishedSuccessfully" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification* n){
-        [self.tabBarController setSelectedIndex:0];
+        [self.tabBarController setSelectedIndex:1];
     }];
 
     HJIntelligenceViewController *viewController1 = [[HJIntelligenceViewController alloc] initWithNibName:@"HJIntelligenceViewController" bundle:nil];

@@ -196,7 +196,9 @@
     NSInteger type = [[cellData objectForKey:@"type"] integerValue];
     if (type == 0) {
         HJTaskViewController *task = [[HJTaskViewController alloc] initWithNibName:@"HJTaskViewController" id:[cellData objectForKey:@"_id"]];
+        self.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:task animated:YES];
+        self.hidesBottomBarWhenPushed = NO;
     }else if (type == 1) {
         HJTaskSeriesViewController *task = [[HJTaskSeriesViewController alloc] initWithNibName:@"HJTaskSeriesViewController" bundle:nil];
         task.type = HJTaskTypeView;

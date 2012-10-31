@@ -26,6 +26,7 @@ typedef enum {
 @property(nonatomic, assign) HJCreateTaskType type;
 
 @property (retain, nonatomic) IBOutlet UITableView *contentView;
+@property (retain, nonatomic) NSMutableArray *selectedProfiles;
 @property (retain, nonatomic) NSDictionary *pickerData;
 @property (retain, nonatomic) NSMutableDictionary *dataSource;
 @property (retain, nonatomic) NSDictionary *dataTitles;

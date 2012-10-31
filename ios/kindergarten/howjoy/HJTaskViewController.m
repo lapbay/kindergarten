@@ -23,7 +23,6 @@
 @end
 
 @implementation HJTaskViewController
-@synthesize contentView = _contentView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,8 +49,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.contentView.delegate = self;
-    self.contentView.dataSource = self;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapOnLocation:)];
     tap.numberOfTapsRequired = 1;
@@ -65,9 +62,6 @@
 
     if (self.taskId) {
         NSMutableDictionary *params = @{@"type": @"0", @"id": self.taskId}.mutableCopy;
-        if (self.superTaskId) {
-            [params setObject:self.superTaskId forKey:@"super_task_id"];
-        }
         MIRequestManager *manager = [MIRequestManager requestManager];
         [manager apiTaskInfo:params withFinishHandler:^(NSURLResponse *response, NSData *rData, NSError *error)
          {
@@ -88,31 +82,9 @@
                          self.otherSource = [NSMutableArray arrayWithArray:other];
                          NSInteger type = [[[self.allData objectForKey:@"task"] objectForKey:@"type"] integerValue];
 
-                         int status =  [[self.allData objectForKey:@"status"] intValue];
+//                         int status =  [[self.allData objectForKey:@"status"] intValue];
                          dispatch_async(dispatch_get_main_queue(), ^{
-                             switch (status) {
-                                 case 0:
-                                 {
-                                     [self setProgresses:0.0];
-                                     break;
-                                 }
-                                 case 1:
-                                 {
-                                     [self setProgresses:0.34];
-                                     break;
-                                 }
-                                 case 2:
-                                 {
-                                     [self setProgresses:0.67];
-                                     break;
-                                 }
-                                 default:
-                                     [self setProgresses:1.0];
-                                     break;
-                             }
-
                              [self setValuesToLabels:task];
-                             [self.contentView reloadData];
                              [self adjustViewHeight];
                              if (type > 1) {
                                  //self.navigationItem.rightBarButtonItem = nil;
@@ -198,9 +170,7 @@
 {
     [super viewWillDisappear:animated];
 }
-- (void)setProgresses:(float) prog {
-    self.progressView.progress = prog;
-}
+
 - (void)setValuesToLabels:(NSDictionary *)res{
     NSMutableDictionary *task =[self.allData objectForKey:@"task"];
     [task addEntriesFromDictionary:res];
@@ -212,11 +182,7 @@
     self.deadlineValueLabel.text = [task objectForKey:@"deadline"];
     self.bonusValueLabel.text = [task objectForKey:@"bonus"];
     self.organizerValueLabel.text = [task objectForKey:@"owner"];
-    id max = [task objectForKey:@"max"];
-    self.maxValueLabel.text = [max isKindOfClass:[NSNumber class]] ? [max stringValue] : max;
-    id count = [task objectForKey:@"count"];
-    self.countValueLabel.text = [count isKindOfClass:[NSNumber class]] ? [count stringValue] : count;
-    self.feeValueLabel.text = @"fee";
+    self.actorValueLabel.text = @"actor";
     NSString *desc = [task objectForKey:@"desc"];
     self.descValueTextView.text = desc;
 
@@ -230,71 +196,7 @@
     CGRect f = self.descValueTextView.frame;
     self.descValueTextView.frame = CGRectMake(f.origin.x, f.origin.y, f.size.width, height);
     
-    self.contentView.frame = CGRectMake(self.contentView.frame.origin.x, f.origin.y + height + 2, self.contentView.frame.size.width, self.contentView.contentSize.height);
-    self.borderScrollView.contentSize = CGSizeMake(self.borderScrollView.contentSize.width, f.origin.y + self.descValueTextView.frame.size.height + 4 + self.contentView.contentSize.height);
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return @"";
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.otherSource.count;
-}
-
-// Customize the number of rows in the table view.
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[self.otherSource objectAtIndex:section] count];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    float height = 44.0f;
-    if ([self.otherSource objectAtIndex:indexPath.section]) {
-        NSString *desc = [[[self.otherSource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectAtIndex:1];
-        UIFont *font = [UIFont systemFontOfSize:15.0];
-        CGSize size = [desc sizeWithFont:font constrainedToSize:CGSizeMake(230, 1000) lineBreakMode:UILineBreakModeWordWrap];
-        height = size.height + 10;
-    }else{
-        height = 96.0f;
-    }
-    return MAX(height, 44.0f);
-}
-
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-        cell.textLabel.textAlignment = UITextAlignmentLeft;
-        cell.textLabel.numberOfLines = 0;
-        cell.textLabel.font = [UIFont systemFontOfSize:15.0];
-        cell.textLabel.backgroundColor = [UIColor clearColor];
-    }
-    
-    NSArray *cellData = [[self.otherSource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-
-    cell.textLabel.text = [cellData objectAtIndex:0];
-    id value = [cellData objectAtIndex:1];
-    NSString *text;
-    if ([value isKindOfClass:[NSNumber class]]) {
-        text = [value stringValue];
-    }else{
-        text = ((NSString *)value);
-    }
-    //text = @"http://www.baidu.com/img/baidu_sylogo1.gif";
-    if (text.length > 0) {
-        cell.detailTextLabel.text = text;
-        [cell.imageView setImage:[UIImage imageNamed:@"placeholder"]];
-        [cell.imageView loadWebImage:text withIndex:@""];
-    }else{
-        [cell.imageView setImage:nil];
-    }
-
-	[self configureCell:cell atIndexPath:indexPath];
-    return cell;
+//    self.borderScrollView.contentSize = CGSizeMake(self.borderScrollView.contentSize.width, f.origin.y + self.descValueTextView.frame.size.height + 4 + self.contentView.contentSize.height);
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
@@ -335,9 +237,8 @@
     UIActionSheet *select;
     if ([self.allData objectForKey:@"role"] && [[self.allData objectForKey:@"role"] intValue] == 10) {
         if (type == 0 || type == 1) {
-            select = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"关闭任务" otherButtonTitles:@"编辑任务", @"邀请好友", @"分享", @"寻宝", @"完成任务", nil];
+            select = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"关闭任务" otherButtonTitles:@"编辑任务", nil];
         }else if (type >= 2) {
-            select = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles: @"寻宝", @"完成任务", nil];
         }
     }else{
         //Log(@"%i", status);
@@ -345,7 +246,7 @@
             case 0:
             {
                 if (type == 0 || type == 1) {
-                    select = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"加入任务", @"邀请好友", @"分享", nil];
+                    select = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"完成任务", @"转交任务", nil];
                 }else if (type >= 2) {
                     //select = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles: @"寻宝", @"完成任务", nil];
                 }
@@ -355,9 +256,9 @@
             case 2:
             {
                 if (type == 0 || type == 1) {
-                    select = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"邀请好友", @"分享", @"寻宝", @"完成任务", nil];
+                    select = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"完成任务", @"转交任务", nil];
                 }else if (type >= 2) {
-                    select = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles: @"寻宝", @"完成任务", nil];
+                    select = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"完成任务", @"转交任务", nil];
                 }
                 break;
             }
@@ -404,14 +305,13 @@
             //centerController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
             [self presentModalViewController:centerController animated:YES];
             viewController5.taskId = self.taskId;
-            viewController5.superTaskId = self.superTaskId;
             [viewController5 initDataSource:@[task]];
 
         }else if ([title isEqualToString:@"加入任务"]) {
             [self joinButtonTapped:nil];
         }else if ([title isEqualToString:@"编辑任务"]) {
             NSLog(@"%@", @"should Modify");
-            NSDictionary *source = @{@"id": self.taskId, @"name":self.titleValueLabel.text, @"desc":self.descValueTextView.text, @"deadline":self.deadlineValueLabel.text, @"max":self.maxValueLabel.text, @"points":self.maxValueLabel.text, @"bonus":self.maxValueLabel.text, @"start_at":self.startatValueLabel.text, @"place":self.locationValueLabel.text, @"categories":self.categoriesValueLabel.text, @"tags":@""};
+            NSDictionary *source = @{@"id": self.taskId, @"name":self.titleValueLabel.text, @"desc":self.descValueTextView.text, @"deadline":self.deadlineValueLabel.text, @"bonus":self.bonusValueLabel.text, @"start_at":self.startatValueLabel.text, @"place":self.locationValueLabel.text, @"actor":self.actorValueLabel.text, @"categories":self.categoriesValueLabel.text};
             HJCreateTaskViewController *creator = [[HJCreateTaskViewController alloc] initWithNibName:@"HJCreateTaskViewController" bundle:nil];
             creator.type = HJTaskTypeIndependentModify;
             [creator reloadWithDataSource:source andDelegate:self];

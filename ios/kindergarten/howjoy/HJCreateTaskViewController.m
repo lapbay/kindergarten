@@ -9,6 +9,7 @@
 #import "HJCreateTaskViewController.h"
 #import "MIRequestManager+API.h"
 #import "HJEditViewController.h"
+#import "HJProfilePickerViewController.h"
 
 @interface HJCreateTaskViewController ()
 
@@ -23,11 +24,11 @@
     if (self) {
         self.title = NSLocalizedString(@"发布新任务", @"Create Task");
         self.type = HJTaskTypeIndependentCreate;
-        self.pickerData = @{@"categories":@[@"a", @"b", @"c"], @"max": @"100", @"points": @"200"};
-        NSDictionary *d = @{@"name":@"", @"desc":@"", @"deadline":@"", @"max":@"", @"points":@"", @"bonus":@"", @"start_at":@"", @"place":@"", @"categories":@"", @"tags":@""};
+        self.pickerData = @{@"categories":@[@"a", @"b", @"c"]};
+        NSDictionary *d = @{@"name":@"", @"desc":@"", @"deadline":@"", @"bonus":@"", @"actor":@"actor", @"start_at":@"", @"place":@"", @"categories":@""};
         self.dataSource = d.mutableCopy;
-        self.dataTitles = @{@"name":@"标题", @"desc":@"描述", @"deadline":@"截止", @"max":@"最多", @"points":@"积分", @"bonus":@"奖励", @"start_at":@"开始", @"place":@"地点", @"categories":@"分类", @"tags":@"标签"};
-        self.dataKeys = @[@[@"name", @"desc"], @[@"deadline", @"start_at", @"place"], @[ @"max", @"points", @"categories"], @[@"bonus", @"tags"]];
+        self.dataTitles = @{@"name":@"标题", @"desc":@"描述", @"deadline":@"截止", @"bonus":@"奖励", @"actor":@"执行人", @"start_at":@"开始", @"place":@"地点", @"categories":@"分类"};
+        self.dataKeys = @[@[@"name", @"desc"], @[@"deadline", @"start_at", @"place"], @[@"categories", @"actor"], @[@"bonus"]];
         d = nil;
     }
     return self;
@@ -230,42 +231,57 @@
         }
         case 2:
         {
-            self.actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"选择 %@ 的值", [self.dataTitles objectForKey:key]]
-                                                           delegate:nil
-                                                  cancelButtonTitle:nil
-                                             destructiveButtonTitle:nil
-                                                  otherButtonTitles:nil];
-            
-            [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-            
-            CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
-            self.dataPicker = [[UIPickerView alloc] initWithFrame:pickerFrame];
-            self.dataPicker.showsSelectionIndicator = YES;
-            self.dataPicker.dataSource = self;
-            self.dataPicker.delegate = self;
-            //NSString *value = [self.dataSource objectForKey:key];
-
-            [self.actionSheet addSubview:self.dataPicker];
-            
-            UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"关闭"]];
-            closeButton.momentary = YES;
-            closeButton.frame = CGRectMake(10, 7.0f, 50.0f, 30.0f);
-            closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
-            closeButton.tintColor = [UIColor blackColor];
-            [closeButton addTarget:self action:@selector(dismissActionSheetWithCancel:) forControlEvents:UIControlEventValueChanged];
-            [self.actionSheet addSubview:closeButton];
-            
-            UISegmentedControl *saveButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"保存"]];
-            saveButton.momentary = YES;
-            saveButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
-            saveButton.segmentedControlStyle = UISegmentedControlStyleBar;
-            saveButton.tintColor = [UIColor blueColor];
-            [saveButton addTarget:self action:@selector(dismissActionSheetWithSave:) forControlEvents:UIControlEventValueChanged];
-            [self.actionSheet addSubview:saveButton];
-            
-            [self.actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
-            
-            [self.actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+            switch (indexPath.row) {
+                case 0:
+                {
+                    self.actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"选择 %@ 的值", [self.dataTitles objectForKey:key]]
+                                                                   delegate:nil
+                                                          cancelButtonTitle:nil
+                                                     destructiveButtonTitle:nil
+                                                          otherButtonTitles:nil];
+                    
+                    [self.actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+                    
+                    CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
+                    self.dataPicker = [[UIPickerView alloc] initWithFrame:pickerFrame];
+                    self.dataPicker.showsSelectionIndicator = YES;
+                    self.dataPicker.dataSource = self;
+                    self.dataPicker.delegate = self;
+                    //NSString *value = [self.dataSource objectForKey:key];
+                    
+                    [self.actionSheet addSubview:self.dataPicker];
+                    
+                    UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"关闭"]];
+                    closeButton.momentary = YES;
+                    closeButton.frame = CGRectMake(10, 7.0f, 50.0f, 30.0f);
+                    closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
+                    closeButton.tintColor = [UIColor blackColor];
+                    [closeButton addTarget:self action:@selector(dismissActionSheetWithCancel:) forControlEvents:UIControlEventValueChanged];
+                    [self.actionSheet addSubview:closeButton];
+                    
+                    UISegmentedControl *saveButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"保存"]];
+                    saveButton.momentary = YES;
+                    saveButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
+                    saveButton.segmentedControlStyle = UISegmentedControlStyleBar;
+                    saveButton.tintColor = [UIColor blueColor];
+                    [saveButton addTarget:self action:@selector(dismissActionSheetWithSave:) forControlEvents:UIControlEventValueChanged];
+                    [self.actionSheet addSubview:saveButton];
+                    
+                    [self.actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
+                    
+                    [self.actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+                    break;
+                }
+                case 1:
+                {
+                    HJProfilePickerViewController *pPicker = [[HJProfilePickerViewController alloc] initWithNibName:@"HJProfilePickerViewController" bundle:nil];
+                    pPicker.delegate = self;
+                    [self.navigationController pushViewController:pPicker animated:YES];
+                    break;
+                }
+                default:
+                    break;
+            }
             break;
         }
         case 3:
@@ -284,6 +300,13 @@
             break;
     }
 
+}
+
+- (IBAction)withTapped:(id) sender {
+}
+
+- (void)profileSelected:(NSArray *)selectedProfiles {
+    self.selectedProfiles = selectedProfiles.mutableCopy;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -402,11 +425,13 @@
         if ([value isKindOfClass:[NSArray class]]) {
             if (((NSArray *) value).count == 0) {
                 ok = NO;
+                Log(@"%@", key);
                 break;
             }
         }else if ([value isKindOfClass:[NSDictionary class]]) {
             if (((NSDictionary *) value).count == 0) {
                 ok = NO;
+                Log(@"%@", key);
                 break;
             }
         }else if ([value isKindOfClass:[NSNumber class]]) {
@@ -414,6 +439,7 @@
         }else if ([value isKindOfClass:[NSString class]]) {
             if (((NSString *) value).length == 0) {
                 ok = NO;
+                Log(@"%@", key);
                 break;
             }
         }
