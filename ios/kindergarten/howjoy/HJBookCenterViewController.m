@@ -49,7 +49,6 @@
     
     [self initRefreshView:self.contentView];
     isLoading = YES;
-    [self refreshFooterTriggered];
 }
 
 - (void)viewDidUnload
@@ -66,6 +65,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self refreshFooterTriggered];
 }
 
 

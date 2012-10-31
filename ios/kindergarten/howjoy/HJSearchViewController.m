@@ -24,7 +24,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Find Friends", @"Find Friends");
+        self.title = NSLocalizedString(@"搜索好友", @"Find Friends");
         self.dataSource = [NSMutableArray array];
         self.type = HJSearchViewTypeProfile;
     }
@@ -217,6 +217,7 @@
 
     if (self.type == HJSearchViewTypeProfile) {
         HJProfileViewController *profile = [[HJProfileViewController alloc] initWithNibName:@"HJProfileViewController" bundle:nil];
+        profile.shouldHideButtons = YES;
         profile.profileId = [cellData objectForKey:@"_id"];
         [self.navigationController pushViewController:profile animated:YES];
     }else if (self.type == HJSearchViewTypeTask) {

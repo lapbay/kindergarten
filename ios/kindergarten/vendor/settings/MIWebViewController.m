@@ -33,7 +33,7 @@
     self.webView1.delegate = self;
     self.hud = [[MBProgressHUD alloc] initWithView:self.view];
 	[self.view addSubview:self.hud];
-    self.hud.labelText = @"正在查询...";
+    self.hud.labelText = @"...";
 }
 
 - (void)viewDidUnload
@@ -52,11 +52,11 @@
 
     NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [self.webView1 loadRequest:request];
-    [self.hud show:YES];
+//    [self.hud show:YES];
 }
 
 - (void) webViewDidFinishLoad:(UIWebView *)webView {
-    [self.hud hide:YES];
+//    [self.hud hide:YES];
 }
 
 - (void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {

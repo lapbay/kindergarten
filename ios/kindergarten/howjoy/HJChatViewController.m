@@ -156,8 +156,10 @@
                      }
                      
                      [bubbleTable reloadData];
-                     NSIndexPath* ipath = [NSIndexPath indexPathForRow: bubbleData.count - 1 inSection: 0];
-                     [bubbleTable scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated:YES];
+                     if (bubbleData.count > 0) {
+                         NSIndexPath* ipath = [NSIndexPath indexPathForRow: bubbleData.count - 1 inSection: 0];
+                         [bubbleTable scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated:YES];
+                     }
                  });
                  
                  @try {
@@ -312,8 +314,10 @@
 	// commit animations
 	[UIView commitAnimations];
     [bubbleTable reloadData];
-    NSIndexPath* ipath = [NSIndexPath indexPathForRow: bubbleData.count - 1 inSection: 0];
-    [bubbleTable scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated:YES];
+    if (bubbleData.count > 0) {
+        NSIndexPath* ipath = [NSIndexPath indexPathForRow: bubbleData.count - 1 inSection: 0];
+        [bubbleTable scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated:YES];
+    }
 }
 
 -(void) keyboardWillHide:(NSNotification *)note{
@@ -353,8 +357,10 @@
     bubbleFrame.size.height += diff;
 //    bubbleFrame.origin.y += diff;
 	bubbleTable.frame = bubbleFrame;
-    NSIndexPath* ipath = [NSIndexPath indexPathForRow: bubbleData.count - 1 inSection: 0];
-    [bubbleTable scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated:YES];
+    if (bubbleData.count > 0) {
+        NSIndexPath* ipath = [NSIndexPath indexPathForRow: bubbleData.count - 1 inSection: 0];
+        [bubbleTable scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated:YES];
+    }
 }
 
 - (void) sendMessage:(NSString *)txt{
@@ -389,8 +395,10 @@
                      }
                      [bubbleData addObject:bubble];
                      [bubbleTable reloadData];
-                     NSIndexPath* ipath = [NSIndexPath indexPathForRow: bubbleData.count - 1 inSection: 0];
-                     [bubbleTable scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated:YES];
+                     if (bubbleData.count > 0) {
+                         NSIndexPath* ipath = [NSIndexPath indexPathForRow: bubbleData.count - 1 inSection: 0];
+                         [bubbleTable scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated:YES];
+                     }
                      textView.text = nil;
                  });
                  @try {

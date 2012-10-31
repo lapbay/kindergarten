@@ -39,7 +39,9 @@ class Api::ProfilesController < HowjoyController
         friends = []
         if current_user.profile.social and current_user.profile.social.feed_sources.include?(profile.id)
           relation = 2
-          friends = profile.social.friends
+          if profile.social and profile.social.friends
+            friends = profile.social.friends
+          end
         end
         data = []
         case params['scope']

@@ -48,11 +48,16 @@
     self.contentView.delegate = self;
     self.contentView.dataSource = self;
 
+    if (!self.shouldHideButtons) {
+        UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchButtonTapped:)];
+        self.navigationItem.leftBarButtonItem = leftButton;
+    }
     if (!self.profileId || [self.profileId isEqualToString:@"self"] || [self.profileId isEqualToString:[[MIStorage sharedManager] currentUserId]]) {
         self.profileId = @"self";
         UIBarButtonItem *NavButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"修改资料", @"Edit Profile") style:UIBarButtonItemStyleBordered target:self action:@selector(editButtonTapped:)];
         self.navigationItem.rightBarButtonItem = NavButton;
     }
+
     //    if ([self.profileId isEqualToString:[[MIStorage sharedManager] currentUserId]] || [self.profileId isEqualToString:@"self"]) {
     //        [self fillProfileData: nil];
     //        [self tabDidSwitch:self.contentSwitchSegment];
@@ -520,8 +525,12 @@
 
 - (IBAction)searchButtonTapped: (id) sender{
     HJSearchViewController *search = [[HJSearchViewController alloc] initWithNibName:@"HJSearchViewController" bundle:nil];
-    [self.navigationController pushViewController:search animated:YES];
-//    [self presentModalViewController:search animated:YES];
+    search.type = HJSearchViewTypeProfile;
+    //search.delegate = self;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:search];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:search action:@selector(searchBarCancelButtonClicked:)];
+    search.navigationItem.leftBarButtonItem = leftButton;
+    [self presentModalViewController:navController animated:YES];
 }
 
 - (IBAction)sentButtonTapped: (id) sender{
@@ -638,9 +647,8 @@
     }else if (control.selectedSegmentIndex ==1) {
         [self fetchTasks];
     }else if (control.selectedSegmentIndex ==2) {
-        [self fetchPhotos];
-    }else if (control.selectedSegmentIndex ==3) {
         [self fetchFriends];
+    }else if (control.selectedSegmentIndex ==3) {
     }
 
 }

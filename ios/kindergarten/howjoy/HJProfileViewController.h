@@ -17,6 +17,7 @@ typedef enum{
     IBOutlet UITableView *contentView;
     HJTableContentType hjContentType;
 }
+@property (nonatomic,assign)  BOOL shouldHideButtons;
 @property (nonatomic,assign)  HJTableContentType hjContentType;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *contentSwitchSegment;
 @property (strong, nonatomic) IBOutlet UIButton *messageButton;
