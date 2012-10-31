@@ -45,8 +45,8 @@
                                                                  action:@selector(createButtonTapped:)];
 //    self.navigationItem.rightBarButtonItem = NavButton;
     UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchButtonTapped:)];
-    self.navigationItem.rightBarButtonItems = @[searchButton, NavButton];
-
+    self.navigationItem.rightBarButtonItem = NavButton;
+    self.navigationItem.leftBarButtonItem = searchButton;
     self.contentView.delegate = self;
     self.contentView.dataSource = self;
 }
