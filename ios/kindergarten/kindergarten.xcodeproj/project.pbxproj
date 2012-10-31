@@ -1433,8 +1433,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ray Tap (87EFZF7UQV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: ran tao (S9J57FEAFP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ran tao (S9J57FEAFP)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1449,7 +1449,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B5A3070-847D-4356-AF37-8D4FBC488526";
+				PROVISIONING_PROFILE = "8C516EC9-D856-4C8F-B045-C4ECF8A91E6B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8C516EC9-D856-4C8F-B045-C4ECF8A91E6B";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1462,8 +1463,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ray Tap (87EFZF7UQV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: ran tao (S9J57FEAFP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ran tao (S9J57FEAFP)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1472,7 +1473,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B5A3070-847D-4356-AF37-8D4FBC488526";
+				PROVISIONING_PROFILE = "8C516EC9-D856-4C8F-B045-C4ECF8A91E6B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8C516EC9-D856-4C8F-B045-C4ECF8A91E6B";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1481,8 +1483,8 @@
 		F14B32AE15D50138003DFF85 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ray Tap (87EFZF7UQV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: ran tao (S9J57FEAFP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ran tao (S9J57FEAFP)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "howjoy/kindergarten-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/howjoy/\"/**";
@@ -1494,7 +1496,8 @@
 					"\"$(SRCROOT)/vendor/ZBarSDK\"",
 				);
 				PRODUCT_NAME = kindergarten;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B5A3070-847D-4356-AF37-8D4FBC488526";
+				PROVISIONING_PROFILE = "8C516EC9-D856-4C8F-B045-C4ECF8A91E6B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8C516EC9-D856-4C8F-B045-C4ECF8A91E6B";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1503,8 +1506,8 @@
 		F14B32AF15D50138003DFF85 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ray Tap (87EFZF7UQV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: ran tao (S9J57FEAFP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ran tao (S9J57FEAFP)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "howjoy/kindergarten-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/howjoy/\"/**";
@@ -1516,7 +1519,9 @@
 					"\"$(SRCROOT)/vendor/ZBarSDK\"",
 				);
 				PRODUCT_NAME = kindergarten;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B5A3070-847D-4356-AF37-8D4FBC488526";
+				PROVISIONING_PROFILE = "8C516EC9-D856-4C8F-B045-C4ECF8A91E6B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8C516EC9-D856-4C8F-B045-C4ECF8A91E6B";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

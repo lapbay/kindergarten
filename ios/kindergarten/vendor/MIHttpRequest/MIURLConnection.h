@@ -10,7 +10,7 @@
 //#define MIAPIHost @"http://localhost:3000/api"
 #define MIAPIHost @"http://10.18.94.124:3000/api"
 #else
-#define MIAPIHost @"http://211.144.37.205/api"
+#define MIAPIHost @"http://211.144.37.205:8080/api"
 #endif
 
 typedef void (^MIRequestFinishBlock)(NSURLResponse*, NSData*, NSError*);
