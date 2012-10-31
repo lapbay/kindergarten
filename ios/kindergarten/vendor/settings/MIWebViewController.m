@@ -20,7 +20,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = NSLocalizedString(@"版本信息", @"Version");
+        self.title = NSLocalizedString(@"信息", @"Infomations");
     }
     return self;
 }

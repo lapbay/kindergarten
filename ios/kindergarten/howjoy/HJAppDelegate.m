@@ -12,6 +12,7 @@
 #import "HJRecordViewController.h"
 #import "HJTaskCenterViewController.h"
 #import "HJProfileViewController.h"
+#import "HJBookCenterViewController.h"
 #import "HJMoreViewController.h"
 #import "MIMoreViewController.h"
 #import "MobClick.h"
@@ -34,16 +35,17 @@
     HJIntelligenceViewController *viewController1 = [[HJIntelligenceViewController alloc] initWithNibName:@"HJIntelligenceViewController" bundle:nil];
     HJTaskCenterViewController *viewController2 = [[HJTaskCenterViewController alloc] initWithNibName:@"HJTaskCenterViewController" bundle:nil];
     HJProfileViewController *viewController3 = [[HJProfileViewController alloc] initWithNibName:@"HJProfileViewController" bundle:nil];
-//    HJMoreViewController *viewController4 = [[HJMoreViewController alloc] initWithNibName:@"HJMoreViewController" bundle:nil];
-    MIMoreViewController *viewController4 = [[MIMoreViewController alloc] initWithNibName:@"MIMoreViewController" bundle:nil];
+    HJBookCenterViewController *viewController4 = [[HJBookCenterViewController alloc] initWithNibName:@"HJBookCenterViewController" bundle:nil];
+    MIMoreViewController *viewController5 = [[MIMoreViewController alloc] initWithNibName:@"MIMoreViewController" bundle:nil];
     
     UINavigationController *navController1 = [[UINavigationController alloc] initWithRootViewController:viewController1];
     UINavigationController *navController2 = [[UINavigationController alloc] initWithRootViewController:viewController2];
     UINavigationController *navController3 = [[UINavigationController alloc] initWithRootViewController:viewController3];
     UINavigationController *navController4 = [[UINavigationController alloc] initWithRootViewController:viewController4];
+    UINavigationController *navController5 = [[UINavigationController alloc] initWithRootViewController:viewController5];
 
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[navController1, navController2, navController3, navController4];
+    self.tabBarController.viewControllers = @[navController1, navController2, navController3, navController4, navController5];
     self.window.rootViewController = self.tabBarController;
 
 //    self.deckController =  [self setupIIViewDeckController];

@@ -67,6 +67,10 @@
 		F1540E5B16410DA90063AF26 /* HJIntelligenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1540E5916410DA90063AF26 /* HJIntelligenceViewController.xib */; };
 		F1540E6616410DFA0063AF26 /* SVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F1540E6316410DFA0063AF26 /* SVSegmentedControl.m */; };
 		F1540E6716410DFA0063AF26 /* SVSegmentedThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = F1540E6516410DFA0063AF26 /* SVSegmentedThumb.m */; };
+		F1540E72164121E70063AF26 /* HJBookCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1540E6D164121E50063AF26 /* HJBookCenterCell.m */; };
+		F1540E73164121E70063AF26 /* HJBookCenterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1540E6E164121E60063AF26 /* HJBookCenterCell.xib */; };
+		F1540E74164121E70063AF26 /* HJBookCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1540E70164121E60063AF26 /* HJBookCenterViewController.m */; };
+		F1540E75164121E70063AF26 /* HJBookCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1540E71164121E70063AF26 /* HJBookCenterViewController.xib */; };
 		F176945A161F132600DDB1CC /* HJEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1769457161F132600DDB1CC /* HJEditViewController.m */; };
 		F176945B161F132600DDB1CC /* HJEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1769458161F132600DDB1CC /* HJEditViewController.xib */; };
 		F176945C161F132600DDB1CC /* HJEditViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1769459161F132600DDB1CC /* HJEditViewController~ipad.xib */; };
@@ -328,6 +332,12 @@
 		F1540E6316410DFA0063AF26 /* SVSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedControl.m; sourceTree = "<group>"; };
 		F1540E6416410DFA0063AF26 /* SVSegmentedThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedThumb.h; sourceTree = "<group>"; };
 		F1540E6516410DFA0063AF26 /* SVSegmentedThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedThumb.m; sourceTree = "<group>"; };
+		F1540E6C164121E50063AF26 /* HJBookCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJBookCenterCell.h; sourceTree = "<group>"; };
+		F1540E6D164121E50063AF26 /* HJBookCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJBookCenterCell.m; sourceTree = "<group>"; };
+		F1540E6E164121E60063AF26 /* HJBookCenterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJBookCenterCell.xib; sourceTree = "<group>"; };
+		F1540E6F164121E60063AF26 /* HJBookCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJBookCenterViewController.h; sourceTree = "<group>"; };
+		F1540E70164121E60063AF26 /* HJBookCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJBookCenterViewController.m; sourceTree = "<group>"; };
+		F1540E71164121E70063AF26 /* HJBookCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJBookCenterViewController.xib; sourceTree = "<group>"; };
 		F1769456161F132600DDB1CC /* HJEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJEditViewController.h; sourceTree = "<group>"; };
 		F1769457161F132600DDB1CC /* HJEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJEditViewController.m; sourceTree = "<group>"; };
 		F1769458161F132600DDB1CC /* HJEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJEditViewController.xib; sourceTree = "<group>"; };
@@ -685,6 +695,12 @@
 				F1A9EE3B15DF90EF00E43C7B /* HJRecordViewController.h */,
 				F1A9EE3C15DF90EF00E43C7B /* HJRecordViewController.m */,
 				F1A9EE3D15DF90EF00E43C7B /* HJRecordViewController.xib */,
+				F1540E6C164121E50063AF26 /* HJBookCenterCell.h */,
+				F1540E6D164121E50063AF26 /* HJBookCenterCell.m */,
+				F1540E6E164121E60063AF26 /* HJBookCenterCell.xib */,
+				F1540E6F164121E60063AF26 /* HJBookCenterViewController.h */,
+				F1540E70164121E60063AF26 /* HJBookCenterViewController.m */,
+				F1540E71164121E70063AF26 /* HJBookCenterViewController.xib */,
 				F14B333E15D94098003DFF85 /* HJProfileViewController.h */,
 				F1AA379D15DD29D500723159 /* HJProfileViewController.m */,
 				F1AA379E15DD29D500723159 /* HJProfileViewController.xib */,
@@ -1309,6 +1325,8 @@
 				F1EDB03916281AE700D197AA /* HJChatViewController.xib in Resources */,
 				F1EDB03B16281AE700D197AA /* HJMessageCenterViewController.xib in Resources */,
 				F1540E5B16410DA90063AF26 /* HJIntelligenceViewController.xib in Resources */,
+				F1540E73164121E70063AF26 /* HJBookCenterCell.xib in Resources */,
+				F1540E75164121E70063AF26 /* HJBookCenterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1387,6 +1405,8 @@
 				F1540E5A16410DA90063AF26 /* HJIntelligenceViewController.m in Sources */,
 				F1540E6616410DFA0063AF26 /* SVSegmentedControl.m in Sources */,
 				F1540E6716410DFA0063AF26 /* SVSegmentedThumb.m in Sources */,
+				F1540E72164121E70063AF26 /* HJBookCenterCell.m in Sources */,
+				F1540E74164121E70063AF26 /* HJBookCenterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
