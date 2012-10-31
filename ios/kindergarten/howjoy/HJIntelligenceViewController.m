@@ -14,6 +14,7 @@
 #import "HJTaskViewController.h"
 #import "HJNotificationCenterViewController.h"
 #import "HJTaskSeriesViewController.h"
+#import "HJEditViewController.h"
 #import "SVSegmentedControl.h"
 
 #import "UIImageView+Web.h"
@@ -748,8 +749,13 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
-        [self sendFeed:[[alertView textFieldAtIndex:0] text]];
+        NSString *txt = [[alertView textFieldAtIndex:0] text];
+        [self sendFeed:txt];
     }
+}
+
+-(IBAction)textEditDidFinished:(NSString *) txt {
+    [self sendFeed:txt];
 }
 
 - (IBAction)createButtonTapped: (id) sender {
@@ -757,13 +763,19 @@
     switch (showingSegment) {
         case 0:
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"发布状态"
-                                                            message:@""
-                                                           delegate:self
-                                                  cancelButtonTitle:@"取消"
-                                                  otherButtonTitles:@"发布", nil];
-            alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-            [alert show];
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"发布状态"
+//                                                            message:@""
+//                                                           delegate:self
+//                                                  cancelButtonTitle:@"取消"
+//                                                  otherButtonTitles:@"发布", nil];
+//            alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+//            [alert show];
+            HJEditViewController *editer = [[HJEditViewController alloc] initWithNibName:@"HJEditViewController" bundle:nil];
+            editer.type = 0;
+            editer.delegate = self;
+            [self.navigationController pushViewController:editer animated:YES];
+            editer.editView.text = @"";
+
             break;
         }
         case 1:
