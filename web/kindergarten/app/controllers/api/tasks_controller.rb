@@ -196,7 +196,7 @@ class Api::TasksController < HowjoyController
         res['other'] = [records]
 
         subtasks = Task.in(id: task1.subtasks)
-        if subtasks
+        if subtasks and subtasks.size > 0
           res[:step] = user_task1.step
           res['subtasks'] = []
           subtasks.each do |subtask|

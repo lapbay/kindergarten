@@ -163,7 +163,6 @@
 										<string key="NSFrame">{{-3, 171}, {326, 30}}</string>
 										<reference key="NSSuperview" ref="564009999"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -253,7 +252,7 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
 						</array>
-						<string key="NSFrameSize">{320, 416}</string>
+						<string key="NSFrameSize">{320, 367}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="564009999"/>
@@ -271,7 +270,7 @@
 						<reference key="IBUITableHeaderView" ref="564009999"/>
 					</object>
 				</array>
-				<string key="NSFrame">{{0, 64}, {320, 416}}</string>
+				<string key="NSFrame">{{0, 64}, {320, 367}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="63256091"/>
@@ -286,6 +285,7 @@
 				<object class="IBUISimulatedNavigationBarMetrics" key="IBUISimulatedTopBarMetrics">
 					<bool key="IBUIPrompted">NO</bool>
 				</object>
+				<object class="IBUISimulatedTabBarMetrics" key="IBUISimulatedBottomBarMetrics"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 		</array>
@@ -488,50 +488,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">HJProfileViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="editButtonTapped:">id</string>
-						<string key="followButtonTapped:">id</string>
-						<string key="messageButtonTapped:">id</string>
-						<string key="respondButtonTapped:">id</string>
-						<string key="searchButtonTapped:">id</string>
-						<string key="sentButtonTapped:">id</string>
-						<string key="tabDidSwitch:">id</string>
-						<string key="unfollowButtonTapped:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="editButtonTapped:">
-							<string key="name">editButtonTapped:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="followButtonTapped:">
-							<string key="name">followButtonTapped:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="messageButtonTapped:">
-							<string key="name">messageButtonTapped:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="respondButtonTapped:">
-							<string key="name">respondButtonTapped:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="searchButtonTapped:">
-							<string key="name">searchButtonTapped:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="sentButtonTapped:">
-							<string key="name">sentButtonTapped:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="tabDidSwitch:">
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">tabDidSwitch:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">tabDidSwitch:</string>
+						<object class="IBActionInfo" key="NS.object.0">
 							<string key="name">tabDidSwitch:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="unfollowButtonTapped:">
-							<string key="name">unfollowButtonTapped:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
+					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="contentSwitchSegment">UISegmentedControl</string>
 						<string key="contentView">UITableView</string>
