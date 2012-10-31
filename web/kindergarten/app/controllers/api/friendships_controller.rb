@@ -10,7 +10,10 @@ def index
     else
       profile = Profile.find(params['profile_id'])
     end
-    friends = profile.social.friends
+    friends = []
+    if profile.social and profile.social.friends
+      friends = profile.social.friends
+    end
     render :status=>200, :json=>{:c=>200, :d=>friends}
     return
     if params['profile_id'] == current_user.profile.id.to_s or params['profile_id'] == 'self'

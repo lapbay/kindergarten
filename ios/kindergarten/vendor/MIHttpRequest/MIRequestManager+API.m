@@ -286,6 +286,22 @@
     [MIURLConnection sendAsynchronousRequest:request queue:self completionHandler:finishHandler errorHandler:errorHandler];
 }
 
+
+- (void) apiSendFeed:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler {
+    NSString *uri = [NSString stringWithFormat:@"%@/feeds.json", MIAPIHost];
+    MIRequest *request = [[MIRequest alloc] initWithURLString:uri];
+    request.HTTPMethod = @"POST";
+    
+    request.allHTTPHeaderFields = [NSMutableDictionary dictionaryWithObjectsAndKeys: @"1.0", @"APIVersion", @"gzip,deflate", @"Accept-Encoding", nil];
+    NSMutableDictionary *postStrings = [self fetchAPIEnvironment];
+    if (url.count > 0) {
+        [postStrings addEntriesFromDictionary:url];
+    }
+    request.postStrings = postStrings;
+    
+    [MIURLConnection sendAsynchronousRequest:request queue:self completionHandler:finishHandler errorHandler:errorHandler];
+}
+
 - (void) apiUserTasks:(NSDictionary *) url withFinishHandler:(void (^)(NSURLResponse*, NSData*, NSError*))finishHandler withErrorHandler:(void (^)(NSURLResponse*, NSData*, NSError*))errorHandler {
     NSString *uri = [NSString stringWithFormat:@"%@/profiles/%@/tasks.json", MIAPIHost, [url objectForKey:@"id"]];
     MIRequest *request = [[MIRequest alloc] initWithURLString:uri];

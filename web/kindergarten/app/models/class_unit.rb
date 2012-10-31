@@ -2,6 +2,7 @@ class ClassUnit
   include Mongoid::Document
 
   has_many :profiles, autosave: true
+  has_many :feeds, autosave: true
 
   field :name,              :type => String, :default => ""
   field :grade,             :type => Integer, :default => 0

@@ -8,7 +8,7 @@
 
 #import "HJAppDelegate.h"
 
-#import "HJFeedCenterViewController.h"
+#import "HJIntelligenceViewController.h"
 #import "HJRecordViewController.h"
 #import "HJTaskCenterViewController.h"
 #import "HJProfileViewController.h"
@@ -31,7 +31,7 @@
         [self.tabBarController setSelectedIndex:0];
     }];
 
-    HJFeedCenterViewController *viewController1 = [[HJFeedCenterViewController alloc] initWithNibName:@"HJFeedCenterViewController" bundle:nil];
+    HJIntelligenceViewController *viewController1 = [[HJIntelligenceViewController alloc] initWithNibName:@"HJIntelligenceViewController" bundle:nil];
     HJTaskCenterViewController *viewController2 = [[HJTaskCenterViewController alloc] initWithNibName:@"HJTaskCenterViewController" bundle:nil];
     HJProfileViewController *viewController3 = [[HJProfileViewController alloc] initWithNibName:@"HJProfileViewController" bundle:nil];
 //    HJMoreViewController *viewController4 = [[HJMoreViewController alloc] initWithNibName:@"HJMoreViewController" bundle:nil];

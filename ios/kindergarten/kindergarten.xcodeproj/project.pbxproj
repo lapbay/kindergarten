@@ -63,6 +63,10 @@
 		F14B335115D94180003DFF85 /* HJTaskCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14B334F15D94180003DFF85 /* HJTaskCenterViewController.xib */; };
 		F14DD0771600B9AF0046723C /* HJPropsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F14DD0751600B9AE0046723C /* HJPropsViewController.m */; };
 		F14DD0781600B9AF0046723C /* HJPropsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14DD0761600B9AF0046723C /* HJPropsViewController.xib */; };
+		F1540E5A16410DA90063AF26 /* HJIntelligenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1540E5816410DA90063AF26 /* HJIntelligenceViewController.m */; };
+		F1540E5B16410DA90063AF26 /* HJIntelligenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1540E5916410DA90063AF26 /* HJIntelligenceViewController.xib */; };
+		F1540E6616410DFA0063AF26 /* SVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F1540E6316410DFA0063AF26 /* SVSegmentedControl.m */; };
+		F1540E6716410DFA0063AF26 /* SVSegmentedThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = F1540E6516410DFA0063AF26 /* SVSegmentedThumb.m */; };
 		F176945A161F132600DDB1CC /* HJEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1769457161F132600DDB1CC /* HJEditViewController.m */; };
 		F176945B161F132600DDB1CC /* HJEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1769458161F132600DDB1CC /* HJEditViewController.xib */; };
 		F176945C161F132600DDB1CC /* HJEditViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1769459161F132600DDB1CC /* HJEditViewController~ipad.xib */; };
@@ -317,6 +321,13 @@
 		F14DD0741600B9AE0046723C /* HJPropsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJPropsViewController.h; sourceTree = "<group>"; };
 		F14DD0751600B9AE0046723C /* HJPropsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJPropsViewController.m; sourceTree = "<group>"; };
 		F14DD0761600B9AF0046723C /* HJPropsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJPropsViewController.xib; sourceTree = "<group>"; };
+		F1540E5716410DA90063AF26 /* HJIntelligenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJIntelligenceViewController.h; sourceTree = "<group>"; };
+		F1540E5816410DA90063AF26 /* HJIntelligenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJIntelligenceViewController.m; sourceTree = "<group>"; };
+		F1540E5916410DA90063AF26 /* HJIntelligenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJIntelligenceViewController.xib; sourceTree = "<group>"; };
+		F1540E6216410DFA0063AF26 /* SVSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedControl.h; sourceTree = "<group>"; };
+		F1540E6316410DFA0063AF26 /* SVSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedControl.m; sourceTree = "<group>"; };
+		F1540E6416410DFA0063AF26 /* SVSegmentedThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedThumb.h; sourceTree = "<group>"; };
+		F1540E6516410DFA0063AF26 /* SVSegmentedThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedThumb.m; sourceTree = "<group>"; };
 		F1769456161F132600DDB1CC /* HJEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJEditViewController.h; sourceTree = "<group>"; };
 		F1769457161F132600DDB1CC /* HJEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJEditViewController.m; sourceTree = "<group>"; };
 		F1769458161F132600DDB1CC /* HJEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJEditViewController.xib; sourceTree = "<group>"; };
@@ -656,6 +667,9 @@
 				F1A9EE7615E61DFB00E43C7B /* HJMapViewController.h */,
 				F1A9EE7715E61DFB00E43C7B /* HJMapViewController.m */,
 				F1A9EE7815E61DFB00E43C7B /* HJMapViewController.xib */,
+				F1540E5716410DA90063AF26 /* HJIntelligenceViewController.h */,
+				F1540E5816410DA90063AF26 /* HJIntelligenceViewController.m */,
+				F1540E5916410DA90063AF26 /* HJIntelligenceViewController.xib */,
 				F1A9EF6B15ECA5A500E43C7B /* HJNotificationCenterViewController.h */,
 				F1A9EF6C15ECA5A500E43C7B /* HJNotificationCenterViewController.m */,
 				F1A9EF6D15ECA5A500E43C7B /* HJNotificationCenterViewController.xib */,
@@ -715,6 +729,7 @@
 		F14B32C415D8D032003DFF85 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				F1540E6116410DFA0063AF26 /* SVSegmentedControl */,
 				F1EDB01216281A3900D197AA /* HPGrowingTextView */,
 				F1EDAFE416281A2900D197AA /* MIChatView */,
 				F1B7943616133FEE00C43849 /* ZBarSDK */,
@@ -797,6 +812,17 @@
 				F14B32F815D8D032003DFF85 /* UIImageView+Web.m */,
 			);
 			path = milan;
+			sourceTree = "<group>";
+		};
+		F1540E6116410DFA0063AF26 /* SVSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				F1540E6216410DFA0063AF26 /* SVSegmentedControl.h */,
+				F1540E6316410DFA0063AF26 /* SVSegmentedControl.m */,
+				F1540E6416410DFA0063AF26 /* SVSegmentedThumb.h */,
+				F1540E6516410DFA0063AF26 /* SVSegmentedThumb.m */,
+			);
+			path = SVSegmentedControl;
 			sourceTree = "<group>";
 		};
 		F189DDE315F0F2D900DC7BB9 /* ViewDeck */ = {
@@ -1282,6 +1308,7 @@
 				F1EDB02916281A3900D197AA /* MessageEntrySendButtonPressed@2x.png in Resources */,
 				F1EDB03916281AE700D197AA /* HJChatViewController.xib in Resources */,
 				F1EDB03B16281AE700D197AA /* HJMessageCenterViewController.xib in Resources */,
+				F1540E5B16410DA90063AF26 /* HJIntelligenceViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1357,6 +1384,9 @@
 				F1EDB02116281A3900D197AA /* HPTextViewInternal.m in Sources */,
 				F1EDB03816281AE700D197AA /* HJChatViewController.m in Sources */,
 				F1EDB03A16281AE700D197AA /* HJMessageCenterViewController.m in Sources */,
+				F1540E5A16410DA90063AF26 /* HJIntelligenceViewController.m in Sources */,
+				F1540E6616410DFA0063AF26 /* SVSegmentedControl.m in Sources */,
+				F1540E6716410DFA0063AF26 /* SVSegmentedThumb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,7 +18,7 @@ Howjoy::Application.routes.draw do
       resources :feeds, :only=>[:index], :controller => "user_feeds"
     end
 
-    resources :feeds, :only=>[:show, :index]
+    resources :feeds
     resources :notifications, :only=>[:create, :index]
     resources :messages, :only=>[:create, :index]
 

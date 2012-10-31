@@ -3,6 +3,7 @@ class Feed
   include Mongoid::Timestamps
 
   belongs_to :profile
+  belongs_to :class_unit
 
   field :title,           :type => String,  :default => ""
   field :content,         :type => String,  :default => ""
