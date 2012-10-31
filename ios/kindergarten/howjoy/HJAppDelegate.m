@@ -34,8 +34,8 @@
 
     HJIntelligenceViewController *viewController1 = [[HJIntelligenceViewController alloc] initWithNibName:@"HJIntelligenceViewController" bundle:nil];
     HJTaskCenterViewController *viewController2 = [[HJTaskCenterViewController alloc] initWithNibName:@"HJTaskCenterViewController" bundle:nil];
-    HJProfileViewController *viewController3 = [[HJProfileViewController alloc] initWithNibName:@"HJProfileViewController" bundle:nil];
-    HJBookCenterViewController *viewController4 = [[HJBookCenterViewController alloc] initWithNibName:@"HJBookCenterViewController" bundle:nil];
+    HJBookCenterViewController *viewController3 = [[HJBookCenterViewController alloc] initWithNibName:@"HJBookCenterViewController" bundle:nil];
+    HJProfileViewController *viewController4 = [[HJProfileViewController alloc] initWithNibName:@"HJProfileViewController" bundle:nil];
     MIMoreViewController *viewController5 = [[MIMoreViewController alloc] initWithNibName:@"MIMoreViewController" bundle:nil];
     
     UINavigationController *navController1 = [[UINavigationController alloc] initWithRootViewController:viewController1];

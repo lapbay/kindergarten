@@ -34,7 +34,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"个人资料", @"Profile");
+        self.title = NSLocalizedString(@"个人", @"Profile");
         self.tabBarItem.image = [UIImage imageNamed:@"second"];
         self.dataSource = [NSMutableArray array];
     }

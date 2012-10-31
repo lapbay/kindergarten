@@ -27,7 +27,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 //        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shouldQueryApi:) name:@"MILoginDidFinishedSuccessfully" object:nil];
-        self.title = NSLocalizedString(@"任务中心", @"Task Center");
+        self.title = NSLocalizedString(@"任务", @"Tasks");
         self.tabBarItem.image = [UIImage imageNamed:@"first"];
         self.sourceType = 0;
         self.dataSource = [NSMutableArray array];
