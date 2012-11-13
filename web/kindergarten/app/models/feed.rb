@@ -4,6 +4,7 @@ class Feed
 
   belongs_to :profile
   belongs_to :class_unit
+  embeds_many :photos
 
   field :title,           :type => String,  :default => ""
   field :content,         :type => String,  :default => ""

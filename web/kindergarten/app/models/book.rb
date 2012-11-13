@@ -8,6 +8,8 @@ class Book
   field :path,               :type => String, :default => ""
   field :url,                :type => String, :default => ""
   field :type,               :type => Integer, :default => 0
+  field :no,                 :type => Integer, :default => 0
+  field :cover,              :type => String, :default => ""
 
   # run 'rake db:mongoid:create_indexes' to create indexes
   #index({ name: 1 }, { unique: true, background: true })
